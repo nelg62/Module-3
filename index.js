@@ -21,3 +21,6 @@ console.log("not a number" / 1) // invalid mathematical operation = NaN
     function test(value) {
         return value || "not a value"
     }
+
+    console.log(test('apple'))
+    console.log(test())
