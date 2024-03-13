@@ -1,3 +1,5 @@
+// question 1
+
 console.log("" + 1 + 0) // 10 the string at the start makes the + a string
 console.log("" - 1 + 0) // -1 -1 + 0   
 console.log(true + false) // 1  1 + 0 = 1 True=1 false=0
@@ -15,3 +17,24 @@ console.log(undefined + 1) // nan  undefined is not a number
 console.log(undefined == null) // true  these work simillarly were the value is nothing
 console.log(undefined === null) // false they are not exactly the same as thet have differant obect types 
 console.log(" \t \n" - 2) // -2  minus ignore the string and make it -2
+
+// question 2
+
+// we need to change the values from string to numbers 
+let three = 3
+// let three = "3"  was
+let four = 4
+// let four = "4"  was
+let thirty = 30
+// let thirty = "30" was
+//what is the value of the following expressions?
+let addition = three + four  //this is the value that will not be working because the values are strings and + does not change string numbers to numbers
+// without change the value is 34  with change the value is 7 
+let multiplication = three * four
+// value is 12
+let division = three / four
+// value would be 0.75
+let subtraction = three - four
+// value would be -1
+let lessThan1 = three < four
+let lessThan2 = thirty < four
