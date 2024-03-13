@@ -46,3 +46,17 @@ if ("0") console.log('#2 zero is true') // this will print because the sting has
 if (null) console.log('null is true') // this will not print because the value is null with = to 0
 if (-1) console.log('negative is true') // this will print because it has a value
 if (1) console.log('positive is true') // this will print because it has a value 
+
+//question 4
+
+let a = 6, b = 4;
+let result = `${a} + ${b} is `;
+// if (a + b < 10) {
+// result += 'less than 10';
+// } else {
+// result += 'greater than 10';
+// }
+
+a + b < 10 ? result += 'less than 10' : result += 'greater than 10'
+
+console.log(result)
