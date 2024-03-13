@@ -38,3 +38,11 @@ let subtraction = three - four
 // value would be -1
 let lessThan1 = three < four
 let lessThan2 = thirty < four
+
+// question 3
+
+if (0) console.log('#1 zero is true') // this will not print because 0 is not a value
+if ("0") console.log('#2 zero is true') // this will print because the sting has a value
+if (null) console.log('null is true') // this will not print because the value is null with = to 0
+if (-1) console.log('negative is true') // this will print because it has a value
+if (1) console.log('positive is true') // this will print because it has a value 
