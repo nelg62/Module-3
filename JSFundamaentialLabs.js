@@ -214,24 +214,61 @@
 // e) Change the way the moreSports and cat2 variables are created to ensure the
 // originals remain independent
 
-let teamSports = ['Hockey', 'Cricket', 'Volleyball'];
-let dog1 = 'Bingo';
-let cat1 = { name: 'Fluffy', breed: 'Siberian' };
+// let teamSports = ['Hockey', 'Cricket', 'Volleyball'];
+// let dog1 = 'Bingo';
+// let cat1 = { name: 'Fluffy', breed: 'Siberian' };
 
-const moreSports = [...teamSports];
-moreSports.push('soccer')
-moreSports.unshift('swimming')
+// const moreSports = [...teamSports];
+// moreSports.push('soccer')
+// moreSports.unshift('swimming')
 
-let dog2 = dog1
-dog2 = 'doggy'
+// let dog2 = dog1
+// dog2 = 'doggy'
 
-const cat2 = {...cat1};
-cat2.name = 'bob'
+// const cat2 = {...cat1};
+// cat2.name = 'bob'
 
-console.log(teamSports)
-console.log(dog1)
-console.log(cat1)
+// console.log(teamSports)
+// console.log(dog1)
+// console.log(cat1)
 
-console.log(moreSports)
-console.log(dog2)
-console.log(cat2)
+// console.log(moreSports)
+// console.log(dog2)
+// console.log(cat2)
+
+// -----------------------------------------------------question 10
+
+// The following constructor function creates a new Person object with the given name and
+// age values.
+// a) Create a new person using the constructor function and store it in a variable
+// b) Create a second person using different name and age values and store it in a separate
+// variable
+// c) Print out the properties of each person object to the console
+// d) Rewrite the constructor function as a class called PersonClass and use it to create a
+// third person using different name and age values. Print it to the console as well.
+// e) Add a canDrive method to both the constructor function and the class that returns true
+// if the person is old enough to drive.
+
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.human = true;
+    this.canDrive = this.age > 16 ? "Can Drive" : "Cannot Drive"
+}
+
+class PersonClass {
+    constructor(name, age, human) {
+        this.name = name
+        this.age = age
+        this.human = true
+        this.canDrive = this.age > 16 ? "Can Drive" : "Cannot Drive"
+    }
+}
+
+let person1 = new Person('Joe', '80')
+let person2 = new Person('jerremy', '14')
+let person3 = new PersonClass('candice', '57')
+
+console.log(person1)
+console.log(person2)
+console.log(person3)
