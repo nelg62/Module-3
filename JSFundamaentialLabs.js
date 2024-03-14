@@ -1,73 +1,73 @@
-// // -----------------------------------------------------question 1
+// -----------------------------------------------------question 1
 
-// // What are the results of these expressions? (answer first, then use console.log() to check)
+// What are the results of these expressions? (answer first, then use console.log() to check)
 
-// console.log("" + 1 + 0) // 10 the string at the start makes the + a string
-// console.log("" - 1 + 0) // -1 -1 + 0   
-// console.log(true + false) // 1  1 + 0 = 1 True=1 false=0
-// console.log(!true) // false   if true is not = to true which is false
-// console.log(6 / "3") // 2  6/3   
-// console.log("2" * "3") // 6    2* 3
-// console.log(4 + 5 + "px") // 9px   4 + 5 and addign px
-// console.log("$" + 4 + 5) // $45  string at start makes the rest a string 
-// console.log("4" - 2) // 2  minus makes the string a number
-// console.log("4px" - 2) // nan  4px is not a number and cannot by minused 
-// console.log(" -9 " + 5) // -9  5     the string has spaces and then add 5 to the end
-// console.log(" -9 " - 5) // -14    munus makes the sting a number and then minus the number 
-// console.log(null + 1) // 1     null=0  + 1
-// console.log(undefined + 1) // nan  undefined is not a number 
-// console.log(undefined == null) // true  these work simillarly were the value is nothing
-// console.log(undefined === null) // false they are not exactly the same as thet have differant obect types 
-// console.log(" \t \n" - 2) // -2  minus ignore the string and make it -2
+console.log("" + 1 + 0) // 10 the string at the start makes the + a string
+console.log("" - 1 + 0) // -1 -1 + 0   
+console.log(true + false) // 1  1 + 0 = 1 True=1 false=0
+console.log(!true) // false   if true is not = to true which is false
+console.log(6 / "3") // 2  6/3   
+console.log("2" * "3") // 6    2* 3
+console.log(4 + 5 + "px") // 9px   4 + 5 and addign px
+console.log("$" + 4 + 5) // $45  string at start makes the rest a string 
+console.log("4" - 2) // 2  minus makes the string a number
+console.log("4px" - 2) // nan  4px is not a number and cannot by minused 
+console.log(" -9 " + 5) // -9  5     the string has spaces and then add 5 to the end
+console.log(" -9 " - 5) // -14    munus makes the sting a number and then minus the number 
+console.log(null + 1) // 1     null=0  + 1
+console.log(undefined + 1) // nan  undefined is not a number 
+console.log(undefined == null) // true  these work simillarly were the value is nothing
+console.log(undefined === null) // false they are not exactly the same as thet have differant obect types 
+console.log(" \t \n" - 2) // -2  minus ignore the string and make it -2
 
 // -----------------------------------------------------question 2
 
 // Which of the below are not giving the right answer? Why are they not correct? How can we fix them?
 
-// // we need to change the values from string to numbers 
-// let three = 3
-// // let three = "3"  was
-// let four = 4
-// // let four = "4"  was
-// let thirty = 30
-// // let thirty = "30" was
-// //what is the value of the following expressions?
-// let addition = three + four  //this is the value that will not be working because the values are strings and + does not change string numbers to numbers
-// // without change the value is 34  with change the value is 7 
-// let multiplication = three * four
-// // value is 12
-// let division = three / four
-// // value would be 0.75
-// let subtraction = three - four
+// we need to change the values from string to numbers 
+let three = 3
+// let three = "3"  was
+let four = 4
+// let four = "4"  was
+let thirty = 30
+// let thirty = "30" was
+//what is the value of the following expressions?
+let addition = three + four  //this is the value that will not be working because the values are strings and + does not change string numbers to numbers
+// without change the value is 34  with change the value is 7 
+let multiplication = three * four
+// value is 12
+let division = three / four
+// value would be 0.75
+let subtraction = three - four
 // value would be -1
-// let lessThan1 = three < four
-// let lessThan2 = thirty < four
+let lessThan1 = three < four
+let lessThan2 = thirty < four
 
 // -----------------------------------------------------question 3
 
 // Which of the following console.log messages will print? Why?
 
-// if (0) console.log('#1 zero is true') // this will not print because 0 is not a value
-// if ("0") console.log('#2 zero is true') // this will print because the sting has a value
-// if (null) console.log('null is true') // this will not print because the value is null with = to 0
-// if (-1) console.log('negative is true') // this will print because it has a value
-// if (1) console.log('positive is true') // this will print because it has a value 
+if (0) console.log('#1 zero is true') // this will not print because 0 is not a value
+if ("0") console.log('#2 zero is true') // this will print because the sting has a value
+if (null) console.log('null is true') // this will not print because the value is null with = to 0
+if (-1) console.log('negative is true') // this will print because it has a value
+if (1) console.log('positive is true') // this will print because it has a value 
 
 // -----------------------------------------------------question 4
 
 // Rewrite this if using the ternary/conditional operator '?'. Test it with different values for a and b. What does the ‘+=’ do?
 
-// let a = 6, b = 4;
-// let result = `${a} + ${b} is `;
+let a = 6, b = 4;
+let result = `${a} + ${b} is `;
 // if (a + b < 10) {
 // result += 'less than 10';
 // } else {
 // result += 'greater than 10';
 // }
 
-// a + b < 10 ? result += 'less than 10' : result += 'greater than 10'
+a + b < 10 ? result += 'less than 10' : result += 'greater than 10'
 
-// console.log(result)
+console.log(result)
 
 // -----------------------------------------------------question 5
 
@@ -86,8 +86,8 @@
 
 // b - arrow function syntax
 
-// const getGreeting = (name) => { return `Hello ${name}!` }
-// console.log(getGreeting('Glen'))
+const getGreeting = (name) => { return `Hello ${name}!` }
+console.log(getGreeting('Glen'))
 
 
 // -----------------------------------------------------question 6
@@ -99,30 +99,30 @@
 // https://www.imdb.com/title/tt0093779/characters/nm0001597.
 // // c) Update getCatchPhrase to use arrow function syntax and a conditional operator.
 
-// const westley = {
-//     name: 'Westley',
-//     numFingers: 5
-// }
-// const rugen = {
-//     name: 'Count Rugen',
-//     numFingers: 6
-// }
-// const inigo = {
-//     firstName: 'Inigo',
-//     lastName: 'Montoya',
-//     greeting(person) {
-//         let greeting = `Hello ${person.name}, my name is ${this.firstName} ${this.lastName}. `;
-//         console.log(greeting + getCatchPhrase(person));
-//     },
-//     // getCatchPhrase(person) {
-//     //   if (person.numFingers === 6) {
-//     //     return "You killed my father. Prepare to die"
-//     //   } else return "Nice to meet you."
-//     // }
-// }
-// const getCatchPhrase = (person) => person.numFingers === 6 ? "You killed my father. Prepare to die" : "Nice to meet you."
-// inigo.greeting(westley)
-// inigo.greeting(rugen)
+const westley = {
+    name: 'Westley',
+    numFingers: 5
+}
+const rugen = {
+    name: 'Count Rugen',
+    numFingers: 6
+}
+const inigo = {
+    firstName: 'Inigo',
+    lastName: 'Montoya',
+    greeting(person) {
+        let greeting = `Hello ${person.name}, my name is ${this.firstName} ${this.lastName}. `;
+        console.log(greeting + getCatchPhrase(person));
+    },
+    // getCatchPhrase(person) {
+    //   if (person.numFingers === 6) {
+    //     return "You killed my father. Prepare to die"
+    //   } else return "Nice to meet you."
+    // }
+}
+const getCatchPhrase = (person) => person.numFingers === 6 ? "You killed my father. Prepare to die" : "Nice to meet you."
+inigo.greeting(westley)
+inigo.greeting(rugen)
 
 // -----------------------------------------------------question 7
 
@@ -136,35 +136,35 @@
 // full time console messages
 // d) Test your object by chaining all the method calls together in different combinations.
 
-// const basketballGame = {
-//     score: 0,
-//     foul: 0,
-//     freeThrow() {
-//         this.score++;
-//         return this
-//     },
-//     basket() {
-//         this.score += 2;
-//         return this
-//     },
-//     threePointer() {
-//         this.score += 3;
-//         return this
-//     },
-//     halfTime() {
-//         console.log(`Halftime score is ${this.score} with ${this.foul} fouls`);
-//         return this
-//     },
-//     finalScore() {
-//         console.log(`Final score is ${this.score} with ${this.foul} fouls`)
-//     },
-//     foulBall() {
-//         this.foul++
-//         return this
-//     }
-// }
-// //modify each of the above object methods to enable function chaining as below:
-// basketballGame.basket().freeThrow().freeThrow().basket().foulBall().threePointer().halfTime().threePointer().basket().freeThrow().foulBall().threePointer().finalScore();
+const basketballGame = {
+    score: 0,
+    foul: 0,
+    freeThrow() {
+        this.score++;
+        return this
+    },
+    basket() {
+        this.score += 2;
+        return this
+    },
+    threePointer() {
+        this.score += 3;
+        return this
+    },
+    halfTime() {
+        console.log(`Halftime score is ${this.score} with ${this.foul} fouls`);
+        return this
+    },
+    finalScore() {
+        console.log(`Final score is ${this.score} with ${this.foul} fouls`)
+    },
+    foulBall() {
+        this.foul++
+        return this
+    }
+}
+//modify each of the above object methods to enable function chaining as below:
+basketballGame.basket().freeThrow().freeThrow().basket().foulBall().threePointer().halfTime().threePointer().basket().freeThrow().foulBall().threePointer().finalScore();
 
 // -----------------------------------------------------question 8
 
@@ -175,32 +175,32 @@
 // b) Create a new object for a different city with different properties and call your function
 // again with the new object.
 
-// const sydney = {
-//     name: 'Sydney',
-//     population: 5_121_000,
-//     state: 'NSW',
-//     founded: '26 January 1788',
-//     timezone: 'Australia/Sydney'
-// }
+const sydney = {
+    name: 'Sydney',
+    population: 5_121_000,
+    state: 'NSW',
+    founded: '26 January 1788',
+    timezone: 'Australia/Sydney'
+}
 
-// const newCity = {
-//     name: 'madeup',
-//     population: 3_214_000,
-//     state: 'mup',
-//     founded: '14 march 2024',
-//     timezone: 'zonetime'
-// }
+const newCity = {
+    name: 'madeup',
+    population: 3_214_000,
+    state: 'mup',
+    founded: '14 march 2024',
+    timezone: 'zonetime'
+}
 
-// const printObj = (city) => {
+const printObj = (city) => {
 
-//     for (let object in city) {
-//         console.log(`${object} - ${city[object]}`)
-//     }
+    for (let object in city) {
+        console.log(`${object} - ${city[object]}`)
+    }
 
-// }
+}
 
-// printObj(sydney)
-// printObj(newCity)
+printObj(sydney)
+printObj(newCity)
 
 // -----------------------------------------------------question 9 
 
@@ -214,27 +214,27 @@
 // e) Change the way the moreSports and cat2 variables are created to ensure the
 // originals remain independent
 
-// let teamSports = ['Hockey', 'Cricket', 'Volleyball'];
-// let dog1 = 'Bingo';
-// let cat1 = { name: 'Fluffy', breed: 'Siberian' };
+let teamSports = ['Hockey', 'Cricket', 'Volleyball'];
+let dog1 = 'Bingo';
+let cat1 = { name: 'Fluffy', breed: 'Siberian' };
 
-// const moreSports = [...teamSports];
-// moreSports.push('soccer')
-// moreSports.unshift('swimming')
+const moreSports = [...teamSports];
+moreSports.push('soccer')
+moreSports.unshift('swimming')
 
-// let dog2 = dog1
-// dog2 = 'doggy'
+let dog2 = dog1
+dog2 = 'doggy'
 
-// const cat2 = {...cat1};
-// cat2.name = 'bob'
+const cat2 = {...cat1};
+cat2.name = 'bob'
 
-// console.log(teamSports)
-// console.log(dog1)
-// console.log(cat1)
+console.log(teamSports)
+console.log(dog1)
+console.log(cat1)
 
-// console.log(moreSports)
-// console.log(dog2)
-// console.log(cat2)
+console.log(moreSports)
+console.log(dog2)
+console.log(cat2)
 
 // -----------------------------------------------------question 10
 
