@@ -175,32 +175,32 @@
 // b) Create a new object for a different city with different properties and call your function
 // again with the new object.
 
-const sydney = {
-    name: 'Sydney',
-    population: 5_121_000,
-    state: 'NSW',
-    founded: '26 January 1788',
-    timezone: 'Australia/Sydney'
-}
+// const sydney = {
+//     name: 'Sydney',
+//     population: 5_121_000,
+//     state: 'NSW',
+//     founded: '26 January 1788',
+//     timezone: 'Australia/Sydney'
+// }
 
-const newCity = {
-    name: 'madeup',
-    population: 3_214_000,
-    state: 'mup',
-    founded: '14 march 2024',
-    timezone: 'zonetime'
-}
+// const newCity = {
+//     name: 'madeup',
+//     population: 3_214_000,
+//     state: 'mup',
+//     founded: '14 march 2024',
+//     timezone: 'zonetime'
+// }
 
-const printObj = (city) => {
+// const printObj = (city) => {
 
-    for (let object in city) {
-        console.log(`${object} - ${city[object]}`)
-    }
+//     for (let object in city) {
+//         console.log(`${object} - ${city[object]}`)
+//     }
 
-}
+// }
 
-printObj(sydney)
-printObj(newCity)
+// printObj(sydney)
+// printObj(newCity)
 
 // -----------------------------------------------------question 9 
 
@@ -217,3 +217,21 @@ printObj(newCity)
 let teamSports = ['Hockey', 'Cricket', 'Volleyball'];
 let dog1 = 'Bingo';
 let cat1 = { name: 'Fluffy', breed: 'Siberian' };
+
+const moreSports = [...teamSports];
+moreSports.push('soccer')
+moreSports.unshift('swimming')
+
+let dog2 = dog1
+dog2 = 'doggy'
+
+const cat2 = {...cat1};
+cat2.name = 'bob'
+
+console.log(teamSports)
+console.log(dog1)
+console.log(cat1)
+
+console.log(moreSports)
+console.log(dog2)
+console.log(cat2)
