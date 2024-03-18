@@ -9,25 +9,25 @@
 //   split = value.split(" ")
 //   let finnishedWord = ""
 // split.forEach(item => {
-    
-   
+
+
 //    finnishedWord += item[0].toUpperCase()
 
 //    finnishedWord += item.slice(1)
 
 //    console.log(`I am in ${finnishedWord}`)
-    
+
 // });
-   
+
 //     }
 
 const ucFirstLetters = (value) => {
   return value.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
-  
+
   // return value.replace(/(^\w|\s\w)/g, m => m.toUpperCase())
 }
 
-console.log(ucFirstLetters("orange monkey") ) //Los Angeles
+console.log(ucFirstLetters("orange monkey")) //Los Angeles
 
 
 // ---------------------------------------------------------question 2
@@ -46,5 +46,44 @@ function truncate(str, max) {
   // }else
   // return str
 
- return str.length > max ? str.substring(0,max) + "..." : str
+  return str.length > max ? str.substring(0, max) + "..." : str
 }
+
+// ---------------------------------------------------------question 3 
+
+// Use the following animals array for the below tasks. Test each one by printing the result to
+// the console. Review the following link for tips:
+
+// https://developer.mozilla.org/en-
+// US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+// a) Add 2 new values to the end
+// b) Add 2 new values to the beginning
+// c) Sort the values alphabetically
+// d) Write a function replaceMiddleAnimal(newValue) that replaces the value in the
+// middle of the animals array with newValue
+// e) Write a function findMatchingAnimals(beginsWith) that returns a new array
+// containing all the animals that begin with the beginsWith string. Try to make it work
+// regardless of upper/lower case.
+
+const animals = ['Tiger', 'Giraffe']
+animals.push("Monkey", "Cow")
+animals.unshift("Sheep", "Zebra")
+animals.sort()
+
+console.log(animals.length % 2)
+
+middle = animals.length / 2 - 1
+
+
+function replaceMiddleAnimal(newValue) {
+  if (animals.length % 2 === 0) {
+    animals.splice(middle, 1, newValue)
+    console.log(animals)
+  } else {
+    animals.splice(middle, 1, newValue)
+    console.log(animals)
+  }
+}
+console.log(animals)
+console.log(replaceMiddleAnimal("Pig"))
