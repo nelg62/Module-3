@@ -24,7 +24,7 @@
 const ucFirstLetters = (value) => {
   return value.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
 
-  // return value.replace(/(^\w|\s\w)/g, m => m.toUpperCase())
+  // return value.replace(/(^\w|\s\w)/g, m => m.toUpperCase())  //found this but dont fully understand how it works 
 }
 
 console.log(ucFirstLetters("orange monkey")) //Los Angeles
@@ -106,3 +106,34 @@ function findMatchingAnimals(beginsWith) {
 }
 
 findMatchingAnimals("c")
+
+
+// ---------------------------------------------------------question 4 
+
+// Write a function camelCase(cssProp) that changes dash-separated CSS properties like
+// 'margin-left' into camel-cased 'marginLeft'.
+// The function should remove all dashes, and uppercase the first letter of each word after a
+// dash.
+// b) Create variants of the camelCase function that use different types of for loops, and
+// c) with and without the conditional operator.
+
+// function camelCase(cssProp) {
+//  split = cssProp.split('-')
+//  if (split.length > 1) {
+//   cssProp = split[0] + split[1].charAt(0).toUpperCase() + split[1].slice(1)
+//  }
+// // console.log(split)
+// // console.log(cssProp)
+// return cssProp
+// }
+
+
+// todo B and C
+
+
+
+
+console.log(camelCase('margin-left')) // marginLeft
+console.log(camelCase('background-image')) // backgroundImage
+console.log(camelCase('display')) // display
+
