@@ -87,3 +87,22 @@ function replaceMiddleAnimal(newValue) {
 }
 console.log(animals)
 console.log(replaceMiddleAnimal("Pig"))
+
+let newAnimals = []
+
+function findMatchingAnimals(beginsWith) {
+  console.log(animals.map(word => word.charAt(0)))
+
+  for (let i = 0; i < animals.length; i++) {
+    if (beginsWith.toUpperCase() === animals[i].charAt(0).toUpperCase()){
+      console.log("match")
+    newAnimals.push(animals[i])
+
+    } else{
+      console.log("no match")
+    }
+  }
+  console.log(newAnimals)
+}
+
+findMatchingAnimals("c")
