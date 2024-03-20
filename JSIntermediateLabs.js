@@ -371,38 +371,92 @@
 // printPhoneBook(allNumbers)
 
 
-// ---------------------------------------------------------question 9
+// // ---------------------------------------------------------question 9
 
-// Given the below salaries object, perform the following tasks.
+// // Given the below salaries object, perform the following tasks.
 
-let salaries = {
-  "Timothy" : 35000,
-  "David" : 25000,
-  "Mary" : 55000,
-  "Christina" : 75000,
-  "James" : 43000
-  };
+// let salaries = {
+//   "Timothy" : 35000,
+//   "David" : 25000,
+//   "Mary" : 55000,
+//   "Christina" : 75000,
+//   "James" : 43000
+//   };
 
-//   a) Write a function sumSalaries(salaries) that calculates and returns the total of all salaries
-let totalPrice = 0
-function sumSalaries(salaries) {
-  let salVal = Object.values(salaries)
-  salVal.forEach(element => {
-    totalPrice += element
-  });
-  console.log(totalPrice)
+// //   a) Write a function sumSalaries(salaries) that calculates and returns the total of all salaries
+// let totalPrice = 0
+// function sumSalaries(salaries) {
+//   let salVal = Object.values(salaries)
+//   salVal.forEach(element => {
+//     totalPrice += element
+//   });
+//   console.log(totalPrice)
+// }
+
+// sumSalaries(salaries)
+
+// // b) Write a function topEarner(salaries) that calculates and returns the name of the person
+// // earning the highest salary
+
+// function topEarner(salaries) {
+//   let topIncomeobj = Object.values(salaries)
+//   let topIncome = Math.max(...topIncomeobj)
+//   let namePerson = Object.keys(salaries).find(key => salaries[key] === topIncome)
+//   console.log(`Top Earner ${namePerson} With $${topIncome}`)
+// }
+
+// topEarner(salaries)
+
+
+// ---------------------------------------------------------question 10
+
+// 10.The following code uses the Date object to print the current time and the number of hours
+// that have passed today so far. Extend the code to do the following:
+
+const today = new Date();
+console.log('Current time is ' + today.toLocaleTimeString())
+console.log(today.getHours() + ' hours have passed so far today')
+
+// a) Print the total number of minutes that have passed so far today
+
+hours = today.getHours()
+HoursInMins = hours * 60
+minutes = today.getMinutes()
+console.log(minsInDay = HoursInMins + minutes)
+
+// b) Print the total number of seconds that have passed so far today
+secondsInMins = minsInDay * 60
+seconds = today.getSeconds()
+console.log(TotaSecInDay = secondsInMins + seconds)
+
+// c) Calculate and print your age as: 'I am x years, y months and z days old'
+
+
+
+const birthDay = new Date('1997-05-29')
+
+birthDay.toLocaleString()
+
+totalYear = today.getFullYear() - birthDay.getFullYear()
+
+MonthsInYear = totalYear * 12
+
+TotalMonths = MonthsInYear + birthDay.getMonth()
+
+daysInMonths = TotalMonths * 30 
+
+totalDays = daysInMonths + birthDay.getDate()
+
+console.log(`I am ${totalYear} years, ${TotalMonths} months and ${totalDays} days old`)
+
+// d) Write a function daysInBetween(date1, date2) which calculates and returns the amount
+// of days in between the two given dates.
+
+function daysInBetween(date1, date2) {
+let combineddates = date1.getTime() - date2.getTime()
+console.log(Days = combineddates / (1000 * 60 * 60 * 24))
+console.log(Months = Days / 12)
+console.log(Years = Months / 31)
 }
 
-sumSalaries(salaries)
-
-// b) Write a function topEarner(salaries) that calculates and returns the name of the person
-// earning the highest salary
-
-function topEarner(salaries) {
-  let topIncomeobj = Object.values(salaries)
-  let topIncome = Math.max(...topIncomeobj)
-  let namePerson = Object.keys(salaries).find(key => salaries[key] === topIncome)
-  console.log(`Top Earner ${namePerson} With $${topIncome}`)
-}
-
-topEarner(salaries)
+daysInBetween(today, birthDay)
