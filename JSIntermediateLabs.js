@@ -143,14 +143,41 @@
 //   });
 // }
 
+// function camelCase(cssProp) {
+//   split = cssProp.split('-')
+//   if (split.length > 1) {
+//     let items = ""
+  
+//   split.forEach((element, element2,) => {
+//     if (element2 == 0) {
+//     items += element.toLowerCase()
+//     } else {
+//     items += element.charAt(0).toUpperCase() + split[element2].slice(1)
+//     }
+//   });
+//   return items
+// }else{
+//   return cssProp.toLowerCase()
+// }
+// }
+
 function camelCase(cssProp) {
   split = cssProp.split('-')
-  console.log((split.length > 1) ? cssProp = split[0] + split[1].charAt(0).toUpperCase() + split[1].slice(1) : cssProp)
+  cssProp =  split.length > 1 ? splitloop() : cssProp.toLowerCase()
+  return cssProp
+}
+
+function splitloop() {
+  let items = ""
+  split.forEach((element, element2) => {
+  cssProp = element2 == 0 ? items += element.toLowerCase() : items += element.charAt(0).toUpperCase() + split[element2].slice(1)
+  });
+  return cssProp
 }
 
 
 
-console.log(camelCase('margin-left-orange')) // marginLeft
+console.log(camelCase('margin-left-orange-apple-mango')) // marginLeft
 console.log(camelCase('background-image')) // backgroundImage
 console.log(camelCase('display')) // display
 
