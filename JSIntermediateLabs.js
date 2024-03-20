@@ -127,16 +127,32 @@
 // return cssProp
 // }
 
+
 // ---------------------------------------------------------------------------------------------------------------------------------------------------
 // todo B and C---------------------------------------------------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------------------------------------------------------------
 
+// function camelCase(cssProp) {
+//   split = cssProp.split('-')
+//   split.forEach((element, element2,) => {
+//     if (element2 == 0) {
+//      console.log(element.toLowerCase())
+//     } else {
+//      console.log(element.charAt(0).toUpperCase() + split[element2].slice(1))
+//     }
+//   });
+// }
+
+function camelCase(cssProp) {
+  split = cssProp.split('-')
+  console.log((split.length > 1) ? cssProp = split[0] + split[1].charAt(0).toUpperCase() + split[1].slice(1) : cssProp)
+}
 
 
 
-// console.log(camelCase('margin-left')) // marginLeft
-// console.log(camelCase('background-image')) // backgroundImage
-// console.log(camelCase('display')) // display
+console.log(camelCase('margin-left-orange')) // marginLeft
+console.log(camelCase('background-image')) // backgroundImage
+console.log(camelCase('display')) // display
 
 
 // // ---------------------------------------------------------question 5
@@ -410,53 +426,53 @@
 
 // ---------------------------------------------------------question 10
 
-// 10.The following code uses the Date object to print the current time and the number of hours
-// that have passed today so far. Extend the code to do the following:
+// // 10.The following code uses the Date object to print the current time and the number of hours
+// // that have passed today so far. Extend the code to do the following:
 
-const today = new Date();
-console.log('Current time is ' + today.toLocaleTimeString())
-console.log(today.getHours() + ' hours have passed so far today')
+// const today = new Date();
+// console.log('Current time is ' + today.toLocaleTimeString())
+// console.log(today.getHours() + ' hours have passed so far today')
 
-// a) Print the total number of minutes that have passed so far today
+// // a) Print the total number of minutes that have passed so far today
 
-hours = today.getHours()
-HoursInMins = hours * 60
-minutes = today.getMinutes()
-console.log(minsInDay = HoursInMins + minutes)
+// hours = today.getHours()
+// HoursInMins = hours * 60
+// minutes = today.getMinutes()
+// console.log(minsInDay = HoursInMins + minutes)
 
-// b) Print the total number of seconds that have passed so far today
-secondsInMins = minsInDay * 60
-seconds = today.getSeconds()
-console.log(TotaSecInDay = secondsInMins + seconds)
+// // b) Print the total number of seconds that have passed so far today
+// secondsInMins = minsInDay * 60
+// seconds = today.getSeconds()
+// console.log(TotaSecInDay = secondsInMins + seconds)
 
-// c) Calculate and print your age as: 'I am x years, y months and z days old'
+// // c) Calculate and print your age as: 'I am x years, y months and z days old'
 
 
 
-const birthDay = new Date('1997-05-29')
+// const birthDay = new Date('1997-05-29')
 
-birthDay.toLocaleString()
+// birthDay.toLocaleString()
 
-totalYear = today.getFullYear() - birthDay.getFullYear()
+// totalYear = today.getFullYear() - birthDay.getFullYear()
 
-MonthsInYear = totalYear * 12
+// MonthsInYear = totalYear * 12
 
-TotalMonths = MonthsInYear + birthDay.getMonth()
+// TotalMonths = MonthsInYear + birthDay.getMonth()
 
-daysInMonths = TotalMonths * 30 
+// daysInMonths = TotalMonths * 30 
 
-totalDays = daysInMonths + birthDay.getDate()
+// totalDays = daysInMonths + birthDay.getDate()
 
-console.log(`I am ${totalYear} years, ${TotalMonths} months and ${totalDays} days old`)
+// console.log(`I am ${totalYear} years, ${TotalMonths} months and ${totalDays} days old`)
 
-// d) Write a function daysInBetween(date1, date2) which calculates and returns the amount
-// of days in between the two given dates.
+// // d) Write a function daysInBetween(date1, date2) which calculates and returns the amount
+// // of days in between the two given dates.
 
-function daysInBetween(date1, date2) {
-let combineddates = date1.getTime() - date2.getTime()
-console.log(Days = combineddates / (1000 * 60 * 60 * 24))
-console.log(Months = Days / 12)
-console.log(Years = Months / 31)
-}
+// function daysInBetween(date1, date2) {
+// let combineddates = date1.getTime() - date2.getTime()
+// console.log(Days = combineddates / (1000 * 60 * 60 * 24))
+// console.log(Months = Days / 12)
+// console.log(Years = Months / 31)
+// }
 
-daysInBetween(today, birthDay)
+// daysInBetween(today, birthDay)
