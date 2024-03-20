@@ -327,45 +327,82 @@
 
 // ---------------------------------------------------------question 8
 
-// The following code creates a new Map object for storing names beginning with A, B, or C
-// with their phone numbers.
+// // The following code creates a new Map object for storing names beginning with A, B, or C
+// // with their phone numbers.
 
-const phoneBookABC = new Map() //an empty map to begin with
-phoneBookABC.set('Annabelle', '0412312343')
-phoneBookABC.set('Barry', '0433221117')
-phoneBookABC.set('Caroline', '0455221182')
+// const phoneBookABC = new Map() //an empty map to begin with
+// phoneBookABC.set('Annabelle', '0412312343')
+// phoneBookABC.set('Barry', '0433221117')
+// phoneBookABC.set('Caroline', '0455221182')
 
-// a) Create a new phoneBookDEF Map to store names beginning with D, E or F
+// // a) Create a new phoneBookDEF Map to store names beginning with D, E or F
 
-const phoneBookDEF = new Map()
+// const phoneBookDEF = new Map()
 
-// b) Initialise the contents of phoneBookDEF by passing in an array of keys/values
+// // b) Initialise the contents of phoneBookDEF by passing in an array of keys/values
 
-phoneBookDEF.set('Dan', '021341564')
-phoneBookDEF.set('Emily', '03849539')
-phoneBookDEF.set('Fred', '0234826349')
+// phoneBookDEF.set('Dan', '021341564')
+// phoneBookDEF.set('Emily', '03849539')
+// phoneBookDEF.set('Fred', '0234826349')
 
-// c) Update the phone number for Caroline
+// // c) Update the phone number for Caroline
 
-phoneBookABC.set('Carolie', '0543876538')
+// phoneBookABC.set('Carolie', '0543876538')
 
-// d) Write a function printPhoneBook(contacts) that prints the names and phone
-// numbers in the given Map
+// // d) Write a function printPhoneBook(contacts) that prints the names and phone
+// // numbers in the given Map
 
-function printPhoneBook(contacts) {
-  contacts.forEach((number, contact) => {
-    console.log(`${contact}: ${number}`)
-  });
+// function printPhoneBook(contacts) {
+//   contacts.forEach((number, contact) => {
+//     console.log(`${contact}: ${number}`)
+//   });
  
+// }
+
+// // printPhoneBook(phoneBookABC)
+// // printPhoneBook(phoneBookDEF)
+
+// // e) Combine the contents of the two individual Maps into a single phoneBook Map
+
+// const allNumbers = new Map([...phoneBookABC, ...phoneBookDEF])
+
+// // f) Print out the full list of names in the combined phone book
+
+// printPhoneBook(allNumbers)
+
+
+// ---------------------------------------------------------question 9
+
+// Given the below salaries object, perform the following tasks.
+
+let salaries = {
+  "Timothy" : 35000,
+  "David" : 25000,
+  "Mary" : 55000,
+  "Christina" : 75000,
+  "James" : 43000
+  };
+
+//   a) Write a function sumSalaries(salaries) that calculates and returns the total of all salaries
+let totalPrice = 0
+function sumSalaries(salaries) {
+  let salVal = Object.values(salaries)
+  salVal.forEach(element => {
+    totalPrice += element
+  });
+  console.log(totalPrice)
 }
 
-// printPhoneBook(phoneBookABC)
-// printPhoneBook(phoneBookDEF)
+sumSalaries(salaries)
 
-// e) Combine the contents of the two individual Maps into a single phoneBook Map
+// b) Write a function topEarner(salaries) that calculates and returns the name of the person
+// earning the highest salary
 
-const allNumbers = new Map([...phoneBookABC, ...phoneBookDEF])
+function topEarner(salaries) {
+  let topIncomeobj = Object.values(salaries)
+  let topIncome = Math.max(...topIncomeobj)
+  let namePerson = Object.keys(salaries).find(key => salaries[key] === topIncome)
+  console.log(`Top Earner ${namePerson} With $${topIncome}`)
+}
 
-// f) Print out the full list of names in the combined phone book
-
-printPhoneBook(allNumbers)
+topEarner(salaries)
