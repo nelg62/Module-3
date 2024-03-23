@@ -60,19 +60,22 @@ console.log("This is Question 3 ------------------------------------------------
 // https://developer.mozilla.org/en-
 // US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
+const animals = ['Tiger', 'Giraffe']
+
 // a) Add 2 new values to the end
+
+animals.push("Monkey", "Cow")
+
 // b) Add 2 new values to the beginning
+
+animals.unshift("Sheep", "Zebra")
+
 // c) Sort the values alphabetically
+
+animals.sort()
+
 // d) Write a function replaceMiddleAnimal(newValue) that replaces the value in the
 // middle of the animals array with newValue
-// e) Write a function findMatchingAnimals(beginsWith) that returns a new array
-// containing all the animals that begin with the beginsWith string. Try to make it work
-// regardless of upper/lower case.
-
-const animals = ['Tiger', 'Giraffe']
-animals.push("Monkey", "Cow")
-animals.unshift("Sheep", "Zebra")
-animals.sort()
 
 console.log(animals.length % 2)
 
@@ -82,14 +85,18 @@ middle = animals.length / 2 - 1
 function replaceMiddleAnimal(newValue) {
   if (animals.length % 2 === 0) {
     animals.splice(middle, 1, newValue)
-    console.log(animals)
+    return animals
   } else {
     animals.splice(middle, 1, newValue)
-    console.log(animals)
+    return animals
   }
 }
 console.log(animals)
 console.log(replaceMiddleAnimal("Pig"))
+
+// e) Write a function findMatchingAnimals(beginsWith) that returns a new array
+// containing all the animals that begin with the beginsWith string. Try to make it work
+// regardless of upper/lower case.
 
 let newAnimals = []
 
