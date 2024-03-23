@@ -108,21 +108,28 @@ console.log(replaceMiddleAnimal("Pig"));
 
 
 function findMatchingAnimals(beginsWith) {
-  let newAnimals = [];
-  console.log(animals.map((word) => word.charAt(0)));
+  // let newAnimals = [];
 
-  for (let i = 0; i < animals.length; i++) {
-    if (beginsWith.toUpperCase() === animals[i].charAt(0).toUpperCase()) {
-      console.log("match");
-      newAnimals.push(animals[i]);
-    } else {
-      console.log("no match");
-    }
-  }
-  console.log(newAnimals);
+   return animals.filter(animal => animal.startsWith(beginsWith))
+
+  //  mabie try array.from()
+
+// try to make it sortable even if not case sensitive 
+
+  // console.log(animals.map((word) => word.charAt(0)));
+
+  // for (let i = 0; i < animals.length; i++) {
+  //   if (beginsWith.toUpperCase() === animals[i].charAt(0).toUpperCase()) {
+  //     console.log("match");
+  //     newAnimals.push(animals[i]);
+  //   } else {
+  //     console.log("no match");
+  //   }
+  // }
+  // console.log(newAnimals);
 }
 
-findMatchingAnimals("c");
+console.log(findMatchingAnimals("C"));
 
 // try to add the startswith()
 
