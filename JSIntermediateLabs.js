@@ -23,15 +23,23 @@ console.log(
 //     }
 
 const ucFirstLetters = (value) => {
-  return value
-    .toLowerCase()
-    .split(" ")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
+  // return value
+  //   .toLowerCase()
+  //   .split(" ")
+  //   .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+  //   .join(" ");
 
-  // change to replac
 
-  // return value.replace(/(^\w|\s\w)/g, m => m.toUpperCase())  //found this but dont fully understand how it works
+  return value.replace(/(^\w|\s\w)/g, m => m.toUpperCase()) 
+
+  // ^ start on the string 
+  // \w matched a word charactor
+  //  | or 
+  // \s blank space
+  // \w matches word 
+  // /g makes it global to get all words in string
+
+  // then assins the value from replace whic is the first leter ofeach word to variable M and makes it upper case
 };
 
 console.log(ucFirstLetters("orange monkey")); //Los Angeles
@@ -110,11 +118,8 @@ console.log(replaceMiddleAnimal("Pig"));
 function findMatchingAnimals(beginsWith) {
   // let newAnimals = [];
 
-   return animals.filter(animal => animal.startsWith(beginsWith))
+   return animals.filter(animal => animal.startsWith(beginsWith.toUpperCase()))
 
-  //  mabie try array.from()
-
-// try to make it sortable even if not case sensitive 
 
   // console.log(animals.map((word) => word.charAt(0)));
 
@@ -129,7 +134,7 @@ function findMatchingAnimals(beginsWith) {
   // console.log(newAnimals);
 }
 
-console.log(findMatchingAnimals("C"));
+console.log(findMatchingAnimals("c"));
 
 // try to add the startswith()
 
@@ -185,22 +190,30 @@ console.log(
 // }
 // }
 
+// -----------------
+
+// function camelCase(cssProp) {
+//   split = cssProp.split("-");
+//   cssProp = split.length > 1 ? splitloop(split) : cssProp.toLowerCase();
+//   return cssProp;
+// }
+
+// function splitloop(split) {
+
+//   let first = split.shift();
+
+//   // const [first, ...rest]= split
+//   // map
+//   split.forEach((element, index) => {
+//     first += element.charAt(0).toUpperCase() + split[index].slice(1);
+//   });
+//   return first;
+// }
+
 function camelCase(cssProp) {
   split = cssProp.split("-");
-  cssProp = split.length > 1 ? splitloop(split) : cssProp.toLowerCase();
-  return cssProp;
-}
-
-function splitloop(split) {
-
-  let first = split.shift();
-
-  // const [first, ...rest]= split
-  // map
-  split.forEach((element, index) => {
-    first += element.charAt(0).toUpperCase() + split[index].slice(1);
-  });
-  return first;
+  let [firstword, ...otherwords] = split  
+  return firstword + otherwords.map(words => words.replace(/(^\w|\s\w)/g, m => m.toUpperCase())).join("")
 }
 
 console.log(camelCase("margin-left-orange-apple-mango")); // marginLeft
@@ -415,16 +428,22 @@ console.log("getTitles",getTitles("j"));
 // e) (Extension) Write a function latestBook() that uses find and forEach to get the
 // book with the most recent publication date.
 
+// function latestBook() {
+//   biggestYear = [];
+//   books.forEach((item) => {
+//     biggestYear.push(item.year);
+//   });
+//   console.log(biggestYear);
+//   let chosenNum = Math.max(...biggestYear);
+//   return books.find((book) => book.year == chosenNum);
+//   // books.sort((a, b)=>)
+// }
+
 function latestBook() {
-  biggestYear = [];
-  books.forEach((item) => {
-    biggestYear.push(item.year);
-  });
-  console.log(biggestYear);
-  let chosenNum = Math.max(...biggestYear);
-  return books.find((book) => book.year == chosenNum);
-  // books.sort((a, b)=>)
+return books.sort((a,b) => b.year - a.year)
 }
+
+
 
 console.log("latestBook",latestBook());
 
