@@ -27,3 +27,34 @@ function makeCounter(startFrom, incrementBy) {
     counter2()
     counter2()
     counter2()
+
+
+    // ------------------------------question 2
+    console.log('This is question 2')
+
+//     The following delayMsg function is intended to be used to delay printing a message until
+// some time has passed.
+// a) What order will the four tests below print in? Why?
+
+//  #4 because there is no settimout so it is instantly printed-> #3 event if it is 0 it is printed stithly after the funtion with no settimout -> #2 after  20 miliseconds -> #1  after 100miliseconds
+
+// b) Rewrite delayMsg as an arrow function
+
+const delayMsg = (msg) => {console.log(`This message will be printed after a delay: ${msg}`)}
+
+// c) Add a fifth test which uses a large delay time (greater than 10 seconds)
+
+let timerbig = setTimeout(delayMsg, 10000, "Delay by 10 seconds")
+
+// d) Use clearTimeout to prevent the fifth test from printing at all.
+
+clearTimeout(timerbig)
+
+// function delayMsg(msg)
+// {
+// console.log(`This message will be printed after a delay: ${msg}`)
+// }
+setTimeout(delayMsg, 100, '#1: Delayed by 100ms');
+setTimeout(delayMsg, 20, '#2: Delayed by 20ms');
+setTimeout(delayMsg, 0, '#3: Delayed by 0ms');
+delayMsg('#4: Not delayed at all')
