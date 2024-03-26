@@ -112,41 +112,108 @@
 //     setTimeout( printMe, 300);
 
 
-    // ------------------------------question 4
-    console.log('This is question 4')
+//     // ------------------------------question 4
+//     console.log('This is question 4')
 
-//     The Fibonacci sequence of numbers is a famous pattern where the next number in the
-// sequence is the sum of the previous 2.
-// e.g. 1, 1, 2, 3, 5, 8, 13, 21, 34, etc.
-// a) Write a function printFibonacci() using setInterval that outputs a number in
-// the Fibonacci sequence every second.
+// //     The Fibonacci sequence of numbers is a famous pattern where the next number in the
+// // sequence is the sum of the previous 2.
+// // e.g. 1, 1, 2, 3, 5, 8, 13, 21, 34, etc.
+// // a) Write a function printFibonacci() using setInterval that outputs a number in
+// // the Fibonacci sequence every second.
 
-// function printFibonacci() {
-//     let firstNum = 0
-//     let secondNum = 1
-//     let sequence = setInterval(() => {numTogether = firstNum + secondNum
-//     firstNum = secondNum
-//     secondNum = numTogether 
-//     console.log(numTogether)},1000)
-//     // return sequence
+// // function printFibonacci() {
+// //     let firstNum = 0
+// //     let secondNum = 1
+// //     let sequence = setInterval(() => {numTogether = firstNum + secondNum
+// //     firstNum = secondNum
+// //     secondNum = numTogether 
+// //     console.log(numTogether)},1000)
+// //     // return sequence
+// // }
+// // printFibonacci()
+
+// // b) Write a new version printFibonacciTimeouts() that uses nested setTimeout
+// // calls to do the same thing
+
+// function printFibonacciTimeouts(time,limit) {
+//         let firstNum = 0
+//         let secondNum = 1
+//     setTimeout(function fibloop(loopnum) {numTogether = firstNum + secondNum
+//             firstNum = secondNum
+//             secondNum = numTogether 
+//             console.log(numTogether)
+//         if (loopnum < limit) setTimeout(fibloop, time, loopnum+1)
+//         },time, 1)
 // }
-// printFibonacci()
 
-// b) Write a new version printFibonacciTimeouts() that uses nested setTimeout
-// calls to do the same thing
+// printFibonacciTimeouts(1000, 10)
 
-function printFibonacciTimeouts(time,limit) {
-        let firstNum = 0
-        let secondNum = 1
-    setTimeout(function fibloop(loopnum) {numTogether = firstNum + secondNum
-            firstNum = secondNum
-            secondNum = numTogether 
-            console.log(numTogether)
-        if (loopnum < limit) setTimeout(fibloop, time, loopnum+1)
-        },time, 1)
-}
+// // c) Extend one of the above functions to accept a limit argument, which tells it how many
+// // numbers to print before stopping.
 
-printFibonacciTimeouts(1000, 10)
 
-// c) Extend one of the above functions to accept a limit argument, which tells it how many
-// numbers to print before stopping.
+// // ------------------------------queston 5
+// console.log('This is question 5')
+
+// // The following car object has several properties and a method which uses them to print a
+// // description. When calling the function normally this works as expected, but using it from
+// // within setTimeout fails. Why?
+
+// // there needs to be a function to give context to the set timeout the car.description i just the name and not a function   
+
+// let car = {
+//     make: "Porsche",
+//     model: '911',
+//     year: 1964,
+//     description() {
+    
+//     console.log(`This car is a ${this.make} ${this.model} from ${this.year}`);
+//     }
+//     };
+//     car.description(); //works
+//     // setTimeout(car.description, 200); //fails
+
+// //     a) Fix the setTimeout call by wrapping the call to car.description() inside a
+// // function
+
+// // setTimeout(() => car.description(), 200)
+
+// // b) Change the year for the car by creating a clone of the original and overriding it
+
+// car = {...car, year: "1831" }
+
+// // c) Does the delayed description() call use the original values or the new values from
+// // b)? Why?
+
+// // it uses the new value bacause the function call is called after the change has happened 
+
+// // d) Use bind to fix the description method so that it can be called from within
+// // setTimeout without a wrapper function
+
+// const bindcar = car.description.bind(car)
+// setTimeout(bindcar, 200)
+
+// // e) Change another property of the car by creating a clone and overriding it, and test that
+// // setTimeout still uses the bound value from d)
+
+// car = {...car, make: 'woodencar'}
+// setTimeout(bindcar, 200)
+
+
+// ------------------------------question 6 
+console.log('This is question 6')
+
+// Use the Function prototype to add a new delay(ms) function to all functions, which can
+// be used to delay the call to that function by ms milliseconds.
+
+function multiply(a, b) {
+    console.log( a * b );
+    }
+    multiply.delay(500)(5, 5); // prints 25 after 500 milliseconds
+
+//     a) Use the example multiply function below to test it with, as above, and assume that all
+// delayed functions will take two parameters
+// b) Use apply to improve your solution so that delayed functions can take any number of
+// parameters
+// c) Modify multiply to take 4 parameters and multiply all of them, and test that your
+// delay prototype function still works.
