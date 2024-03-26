@@ -209,7 +209,10 @@ console.log('This is question 6')
 function multiply(a, b) {
     console.log( a * b );
     }
+
+    multiply.prototype.delay = (ms) => { console.log(ms)}
     multiply.delay(500)(5, 5); // prints 25 after 500 milliseconds
+    
 
 //     a) Use the example multiply function below to test it with, as above, and assume that all
 // delayed functions will take two parameters
