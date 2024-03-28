@@ -200,36 +200,89 @@
 // setTimeout(bindcar, 200)
 
 
-// ------------------------------question 6 
-console.log('This is question 6')
+// // ------------------------------question 6 
+// console.log('This is question 6')
 
-// Use the Function prototype to add a new delay(ms) function to all functions, which can
-// be used to delay the call to that function by ms milliseconds.
+// // Use the Function prototype to add a new delay(ms) function to all functions, which can
+// // be used to delay the call to that function by ms milliseconds.
 
-// function multiply(a, b) {
-//     console.log( a * b );
+// // function multiply(a, b) {
+// //     console.log( a * b );
+// //     }
+
+//     Function.prototype.delay = function delay(ms) {
+// return function (...a) {
+//         setTimeout(() => {multiply.apply(multiply,a)},ms)
+// }
 //     }
 
-    Function.prototype.delay = function delay(ms) {
-return function (...a) {
-        setTimeout(() => {multiply.apply(multiply,a)},ms)
-}
-    }
 
-
-// multiply.delay(500)
-    multiply.delay(500)(5, 5); // prints 25 after 500 milliseconds
-    multiply.delay(1000)(5,5,5,5)
+// // multiply.delay(500)
+//     multiply.delay(500)(5, 5); // prints 25 after 500 milliseconds
+//     multiply.delay(1000)(5,5,5,5)
     
 
-//     a) Use the example multiply function below to test it with, as above, and assume that all
-// delayed functions will take two parameters
-// b) Use apply to improve your solution so that delayed functions can take any number of
-// parameters
-// c) Modify multiply to take 4 parameters and multiply all of them, and test that your
-// delay prototype function still works.
+// //     a) Use the example multiply function below to test it with, as above, and assume that all
+// // delayed functions will take two parameters
+// // b) Use apply to improve your solution so that delayed functions can take any number of
+// // parameters
+// // c) Modify multiply to take 4 parameters and multiply all of them, and test that your
+// // delay prototype function still works.
 
-function multiply(a,...b) {
-    bTogether = b.reduce((first,second) => first*second)
-    console.log(a * bTogether)
+// function multiply(a,...b) {
+//     bTogether = b.reduce((first,second) => first*second)
+//     console.log(a * bTogether)
+//     }
+
+
+// ------------------------------question 7
+console.log('This is question 7')
+
+function Person(name, age, gender) {
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
     }
+    
+    const person1 = new Person('James Brown', 73, 'male')
+
+// In JavaScript, the toString method is used to convert an object to a string representation.
+// By default, when an object is converted to a String, it returns a string that looks something
+// like [object Object].
+// However, we can define our own toString methods for custom objects to provide a more
+// meaningful string representation.
+// a) Define a custom toString method for the Person object that will format and print
+// their details
+
+Person.prototype.toString = function addtostring() {
+    return `name: ${this.name} age: ${this.age} gender: ${this.gender}`
+}
+
+// b) Test your method by creating 2 different people using the below constructor function
+// and printing them
+
+const person2 = new Person('Paul paul', 82, 'male')
+const person3 = new Person('Bob bob', 22, 'female')
+
+// c) Create a new constructor function Student that uses call to inherit from Person and
+// add an extra property cohort
+
+function Student(name, age, gender) {
+Person.call(this,name, age, gender)
+this.subject = 'Programing'
+}
+
+// d) Add a custom toString for Student objects that formats and prints their details. Test
+// with 2 students.
+
+const student1 = new Student('Jess jess', 33, 'male')
+const student2 = new Student('Mac mac', 22, 'male')
+Student.prototype.toString = function addtostring() {
+    return `name: ${this.name} age: ${this.age} gender: ${this.gender} subject: ${this.subject}`
+}
+
+    console.log('person1: '+person1) //prints person1: [object Object]
+    console.log('person2: '+person2)
+    console.log('person3: '+person3)
+    console.log('student1: '+student1)
+    console.log('student2: '+student2)
