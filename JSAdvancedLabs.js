@@ -206,12 +206,20 @@ console.log('This is question 6')
 // Use the Function prototype to add a new delay(ms) function to all functions, which can
 // be used to delay the call to that function by ms milliseconds.
 
-function multiply(a, b) {
-    console.log( a * b );
+// function multiply(a, b) {
+//     console.log( a * b );
+//     }
+
+    Function.prototype.delay = function delay(ms) {
+return function (...a) {
+        setTimeout(() => {multiply.apply(multiply,a)},ms)
+}
     }
 
-    multiply.prototype.delay = (ms) => { console.log(ms)}
+
+// multiply.delay(500)
     multiply.delay(500)(5, 5); // prints 25 after 500 milliseconds
+    multiply.delay(1000)(5,5,5,5)
     
 
 //     a) Use the example multiply function below to test it with, as above, and assume that all
@@ -220,3 +228,8 @@ function multiply(a, b) {
 // parameters
 // c) Modify multiply to take 4 parameters and multiply all of them, and test that your
 // delay prototype function still works.
+
+function multiply(a,...b) {
+    bTogether = b.reduce((first,second) => first*second)
+    console.log(a * bTogether)
+    }
