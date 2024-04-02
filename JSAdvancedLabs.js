@@ -324,8 +324,21 @@ class DigitalClock {
 // should default to 1 second if not supplied.
 
 class PrecisionClock extends DigitalClock{
-
+    constructor(prefix, precision) {
+        super(prefix)
+        if (this.precision == undefined) {
+        this.precision = 1000
+        }else{
+            this.precision = precision
+        }
+        
+    }
+//    precitionint = setInterval(() => ,this.precision)
 }
+// creates very fast loop will look at this later 
+const preciseClock = new PrecisionClock("percice",10000)
+
+preciseClock.start()
 
 // b) Create a new class AlarmClock that inherits from DigitalClock and adds the
 // parameter wakeupTime in the format hh:mm. When the clock reaches this time, it
