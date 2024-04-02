@@ -331,9 +331,12 @@ class PrecisionClock extends DigitalClock{
         }else{
             this.precision = precision
         }
-        
+      
     }
-//    precitionint = setInterval(() => ,this.precision)
+    start() {
+        setInterval(() => this.display(),this.precision)
+    }
+   
 }
 // creates very fast loop will look at this later 
 const preciseClock = new PrecisionClock("percice",10000)
