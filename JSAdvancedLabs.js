@@ -331,23 +331,38 @@ class DigitalClock {
 //   }
 // }
 
-class PrecisionClock extends DigitalClock {
-    constructor(prefix, precision = 1000) {
-        super(prefix)
-        this.precision = precision
-    }
-    start() {
-        setInterval(() => this.display(), this.precision)
-    }
-}
+// class PrecisionClock extends DigitalClock {
+//     constructor(prefix, precision = 1000) {
+//         super(prefix)
+//         this.precision = precision
+//     }
+//     start() {
+//         setInterval(() => this.display(), this.precision)
+//     }
+// }
 
 
-// creates very fast loop will look at this later
-const preciseClock = new PrecisionClock("percice", 3000);
+// // creates very fast loop will look at this later
+// const preciseClock = new PrecisionClock("percice", 3000);
 
-preciseClock.start();
+// preciseClock.start();
 
 // b) Create a new class AlarmClock that inherits from DigitalClock and adds the
 // parameter wakeupTime in the format hh:mm. When the clock reaches this time, it
 // should print a 'Wake Up' message and stop ticking. This wakeupTime parameter should
 // default to 07:00 if not supplied.
+
+class AlarmClock extends DigitalClock {
+    constructor(prefix, wakeupTime) {
+        super(prefix)
+        this.wakeupTime = wakeupTime
+    }
+    alarm() {
+        console.log(this.wakeupTime)
+    }
+}
+
+
+const alarm = new AlarmClock("WAKE UP", "3:00")
+
+alarm.alarm()
