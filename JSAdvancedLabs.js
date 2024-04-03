@@ -10,7 +10,6 @@
 // // c) Modify makeCounter to take another argument incrementBy, which specifies how
 // // much each call to counter() should increase the counter value by.
 
-
 // function makeCounter(startFrom, incrementBy) {
 //     let currentCount = startFrom;
 //     return function() {
@@ -27,7 +26,6 @@
 //     counter2()
 //     counter2()
 //     counter2()
-
 
 //     // ------------------------------question 2
 //     console.log('This is question 2')
@@ -58,7 +56,6 @@
 // setTimeout(delayMsg, 20, '#2: Delayed by 20ms');
 // setTimeout(delayMsg, 0, '#3: Delayed by 0ms');
 // delayMsg('#4: Not delayed at all')
-
 
 // ------------------------------question 3
 // console.log('This is question 3')
@@ -111,7 +108,6 @@
 //     setTimeout( printMe, 200);
 //     setTimeout( printMe, 300);
 
-
 //     // ------------------------------question 4
 //     console.log('This is question 4')
 
@@ -126,7 +122,7 @@
 // //     let secondNum = 1
 // //     let sequence = setInterval(() => {numTogether = firstNum + secondNum
 // //     firstNum = secondNum
-// //     secondNum = numTogether 
+// //     secondNum = numTogether
 // //     console.log(numTogether)},1000)
 // //     // return sequence
 // // }
@@ -140,7 +136,7 @@
 //         let secondNum = 1
 //     setTimeout(function fibloop(loopnum) {numTogether = firstNum + secondNum
 //             firstNum = secondNum
-//             secondNum = numTogether 
+//             secondNum = numTogether
 //             console.log(numTogether)
 //         if (loopnum < limit) setTimeout(fibloop, time, loopnum+1)
 //         },time, 1)
@@ -151,7 +147,6 @@
 // // c) Extend one of the above functions to accept a limit argument, which tells it how many
 // // numbers to print before stopping.
 
-
 // // ------------------------------queston 5
 // console.log('This is question 5')
 
@@ -159,14 +154,14 @@
 // // description. When calling the function normally this works as expected, but using it from
 // // within setTimeout fails. Why?
 
-// // there needs to be a function to give context to the set timeout the car.description i just the name and not a function   
+// // there needs to be a function to give context to the set timeout the car.description i just the name and not a function
 
 // let car = {
 //     make: "Porsche",
 //     model: '911',
 //     year: 1964,
 //     description() {
-    
+
 //     console.log(`This car is a ${this.make} ${this.model} from ${this.year}`);
 //     }
 //     };
@@ -185,7 +180,7 @@
 // // c) Does the delayed description() call use the original values or the new values from
 // // b)? Why?
 
-// // it uses the new value bacause the function call is called after the change has happened 
+// // it uses the new value bacause the function call is called after the change has happened
 
 // // d) Use bind to fix the description method so that it can be called from within
 // // setTimeout without a wrapper function
@@ -199,8 +194,7 @@
 // car = {...car, make: 'woodencar'}
 // setTimeout(bindcar, 200)
 
-
-// // ------------------------------question 6 
+// // ------------------------------question 6
 // console.log('This is question 6')
 
 // // Use the Function prototype to add a new delay(ms) function to all functions, which can
@@ -216,11 +210,9 @@
 // }
 //     }
 
-
 // // multiply.delay(500)
 //     multiply.delay(500)(5, 5); // prints 25 after 500 milliseconds
 //     multiply.delay(1000)(5,5,5,5)
-    
 
 // //     a) Use the example multiply function below to test it with, as above, and assume that all
 // // delayed functions will take two parameters
@@ -234,7 +226,6 @@
 //     console.log(a * bTogether)
 //     }
 
-
 // // ------------------------------question 7
 // console.log('This is question 7')
 
@@ -243,7 +234,7 @@
 //     this.age = age;
 //     this.gender = gender;
 //     }
-    
+
 //     const person1 = new Person('James Brown', 73, 'male')
 
 // // In JavaScript, the toString method is used to convert an object to a string representation.
@@ -287,61 +278,74 @@
 //     console.log('student1: '+student1)
 //     console.log('student2: '+student2)
 
-
 // ------------------------------question 8
-console.log('This is question 8')
+console.log("This is question 8");
 
 // The following DigitalClock class uses an interval to print the time every second once
 // started, until stopped.
 
 class DigitalClock {
-    constructor(prefix) {
+  constructor(prefix) {
     this.prefix = prefix;
-    }
-    display() {
+  }
+  display() {
     let date = new Date();
     //create 3 variables in one go using array destructuring
-    let [hours, mins, secs] = [date.getHours(), date.getMinutes(),
-    date.getSeconds()];
-    if (hours < 10) hours = '0' + hours;
-    if (mins < 10) mins = '0' + mins;
-    if (secs < 10) secs = '0' + secs;
+    let [hours, mins, secs] = [
+      date.getHours(),
+      date.getMinutes(),
+      date.getSeconds(),
+    ];
+    if (hours < 10) hours = "0" + hours;
+    if (mins < 10) mins = "0" + mins;
+    if (secs < 10) secs = "0" + secs;
     console.log(`${this.prefix} ${hours}:${mins}:${secs}`);
-    }
-    stop() {
+  }
+  stop() {
     clearInterval(this.timer);
-    }
-    start() {
+  }
+  start() {
     this.display();
     this.timer = setInterval(() => this.display(), 1000);
-    }
-    }
-    const myClock = new DigitalClock('my clock:')
-    myClock.start()
+  }
+}
+// const myClock = new DigitalClock("my clock:");
+// myClock.start();
 
 // a) Create a new class PrecisionClock that inherits from DigitalClock and adds the
 // parameter precision – the number of ms between 'ticks'. This precision parameter
 // should default to 1 second if not supplied.
 
-class PrecisionClock extends DigitalClock{
-    constructor(prefix, precision) {
+// class PrecisionClock extends DigitalClock {
+//   constructor(prefix, precision) {
+//     super(prefix);
+//     console.log('precision',precision);
+//     if (precision == undefined) {
+//       this.precision = 1000;
+//     } else {
+//       this.precision = precision;
+//     }
+//   }
+//   start() {
+//     setInterval(() => this.display(), this.precision);
+//   }
+// }
+
+class PrecisionClock extends DigitalClock {
+    constructor(prefix, precision = 1000) {
         super(prefix)
-        if (this.precision == undefined) {
-        this.precision = 1000
-        }else{
-            this.precision = precision
-        }
-      
+        this.precision = precision
     }
     start() {
-        setInterval(() => this.display(),this.precision)
+        setInterval(() => this.display(), this.precision)
     }
-   
 }
-// creates very fast loop will look at this later 
-const preciseClock = new PrecisionClock("percice",10000)
 
-preciseClock.start()
+
+// creates very fast loop will look at this later
+const preciseClock = new PrecisionClock("percice", 3000);
+
+preciseClock.start();
 
 // b) Create a new class AlarmClock that inherits from DigitalClock and adds the
 // parameter wakeupTime in the format hh:mm. When the clock reaches this time, it
