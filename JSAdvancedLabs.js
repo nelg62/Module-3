@@ -459,14 +459,14 @@ globalThis.fetch = fetch
 async function fetchURLData(url) {
     try {
        let urldata = await fetch(url)
-        console.log("Hi")
         let sorturldata = await urldata.json()
         console.log(sorturldata)
         
     } catch (error){
-        console.log("enter a valid URL,"+ error)
+        console.log("error info:"+ error)
 
     }
 }
 
 fetchURLData('https://jsonplaceholder.typicode.com/todos/1')
+fetchURLData('hello')
