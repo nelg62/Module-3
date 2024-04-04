@@ -278,116 +278,145 @@
 //     console.log('student1: '+student1)
 //     console.log('student2: '+student2)
 
-// ------------------------------question 8
-console.log("This is question 8");
+// // ------------------------------question 8
+// console.log("This is question 8");
 
-// The following DigitalClock class uses an interval to print the time every second once
-// started, until stopped.
+// // The following DigitalClock class uses an interval to print the time every second once
+// // started, until stopped.
 
-class DigitalClock {
-    constructor(prefix) {
-        this.prefix = prefix;
-    }
-    display() {
-        let date = new Date();
-        //create 3 variables in one go using array destructuring
-        let [hours, mins, secs] = [
-            date.getHours(),
-            date.getMinutes(),
-            date.getSeconds(),
-        ];
-        if (hours < 10) hours = "0" + hours;
-        if (mins < 10) mins = "0" + mins;
-        if (secs < 10) secs = "0" + secs;
-        console.log(`${this.prefix} ${hours}:${mins}:${secs}`);
-    }
-    stop() {
-        clearInterval(this.timer);
-    }
-    start() {
-        this.display();
-        this.timer = setInterval(() => this.display(), 1000);
-    }
-}
-// const myClock = new DigitalClock("my clock:");
-// myClock.start();
-
-// a) Create a new class PrecisionClock that inherits from DigitalClock and adds the
-// parameter precision – the number of ms between 'ticks'. This precision parameter
-// should default to 1 second if not supplied.
-
-// class PrecisionClock extends DigitalClock {
-//   constructor(prefix, precision) {
-//     super(prefix);
-//     console.log('precision',precision);
-//     if (precision == undefined) {
-//       this.precision = 1000;
-//     } else {
-//       this.precision = precision;
+// class DigitalClock {
+//     constructor(prefix) {
+//         this.prefix = prefix;
 //     }
-//   }
-//   start() {
-//     setInterval(() => this.display(), this.precision);
-//   }
-// }
-
-// class PrecisionClock extends DigitalClock {
-//     constructor(prefix, precision = 1000) {
-//         super(prefix)
-//         this.precision = precision
+//     display() {
+//         let date = new Date();
+//         //create 3 variables in one go using array destructuring
+//         let [hours, mins, secs] = [
+//             date.getHours(),
+//             date.getMinutes(),
+//             date.getSeconds(),
+//         ];
+//         if (hours < 10) hours = "0" + hours;
+//         if (mins < 10) mins = "0" + mins;
+//         if (secs < 10) secs = "0" + secs;
+//         console.log(`${this.prefix} ${hours}:${mins}:${secs}`);
+//     }
+//     stop() {
+//         clearInterval(this.timer);
 //     }
 //     start() {
-//         setInterval(() => this.display(), this.precision)
+//         this.display();
+//         this.timer = setInterval(() => this.display(), 1000);
+//     }
+// }
+// // const myClock = new DigitalClock("my clock:");
+// // myClock.start();
+
+// // a) Create a new class PrecisionClock that inherits from DigitalClock and adds the
+// // parameter precision – the number of ms between 'ticks'. This precision parameter
+// // should default to 1 second if not supplied.
+
+// // class PrecisionClock extends DigitalClock {
+// //   constructor(prefix, precision) {
+// //     super(prefix);
+// //     console.log('precision',precision);
+// //     if (precision == undefined) {
+// //       this.precision = 1000;
+// //     } else {
+// //       this.precision = precision;
+// //     }
+// //   }
+// //   start() {
+// //     setInterval(() => this.display(), this.precision);
+// //   }
+// // }
+
+// // class PrecisionClock extends DigitalClock {
+// //     constructor(prefix, precision = 1000) {
+// //         super(prefix)
+// //         this.precision = precision
+// //     }
+// //     start() {
+// //         setInterval(() => this.display(), this.precision)
+// //     }
+// // }
+
+
+// // // creates very fast loop will look at this later
+// // const preciseClock = new PrecisionClock("percice", 3000);
+
+// // preciseClock.start();
+
+// // b) Create a new class AlarmClock that inherits from DigitalClock and adds the
+// // parameter wakeupTime in the format hh:mm. When the clock reaches this time, it
+// // should print a 'Wake Up' message and stop ticking. This wakeupTime parameter should
+// // default to 07:00 if not supplied.
+
+// class AlarmClock extends DigitalClock {
+//     constructor(prefix, wakeupTime = "07:00") {
+//         super(prefix)
+//         this.wakeupTime = wakeupTime
+//     }
+//     display2() {
+//         let date = new Date()
+
+//         let [hours, mins] = [
+//             date.getHours(),
+//             date.getMinutes(),
+//         ];
+
+//         if (hours < 10) hours = "0" + hours;
+//         if (mins < 10) mins = "0" + mins;
+
+//         let currentTime = `${hours}:${mins}`
+//         this.currentTime = currentTime
+//         console.log(this.currentTime)
+
+//         if (this.currentTime == this.wakeupTime){
+//             setTimeout(() => clearInterval(this.timer2))
+//             console.log("WAKE UP!!!")
+//     }
+//     }
+
+
+//     alarm() {
+//         this.display2()
+//         console.log(this.currentTime)
+//         console.log(this.wakeupTime)
+//        this.timer2 = setInterval(() => this.display2(), 1000);
 //     }
 // }
 
 
-// // creates very fast loop will look at this later
-// const preciseClock = new PrecisionClock("percice", 3000);
+// const alarm = new AlarmClock("WAKE UP", "13:59")
 
-// preciseClock.start();
+// alarm.alarm()
 
-// b) Create a new class AlarmClock that inherits from DigitalClock and adds the
-// parameter wakeupTime in the format hh:mm. When the clock reaches this time, it
-// should print a 'Wake Up' message and stop ticking. This wakeupTime parameter should
-// default to 07:00 if not supplied.
+// ------------------------------question 9
+console.log("This is question 9")
 
-class AlarmClock extends DigitalClock {
-    constructor(prefix, wakeupTime = "07:00") {
-        super(prefix)
-        this.wakeupTime = wakeupTime
+// We can delay execution of a function using setTimeout, where we need to provide both
+// the callback function and the delay after which it should execute.
+// a) Create a promise-based alternative randomDelay() that delays execution for a
+// random amount of time (between 1 and 20 seconds) and returns a promise we can use
+// via .then(), as in the starter code below
+// b) If the random delay is even, consider this a successful delay and resolve the promise,
+// and if the random number is odd, consider this a failure and reject it
+// c) Update the testing code to catch rejected promises and print a different message
+// d) Try to update the then and catch messages to include the random delay value
+
+function randomDelay() {
+    // your code
+    let randomTime = Math.floor(Math.random() * (20000 - 1000 + 1)) + 1000
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (randomTime % 2 == 0) {
+                resolve(console.log(`even number success the number was: ${randomTime}`))
+            } else {
+                reject(console.log(`odd number fail the number was: ${randomTime}`))
+            }
+        }, randomTime)
     }
-    display2() {
-        let date = new Date()
-
-        let [hours, mins] = [
-            date.getHours(),
-            date.getMinutes(),
-        ];
-
-        if (hours < 10) hours = "0" + hours;
-        if (mins < 10) mins = "0" + mins;
-
-        let currentTime = `${hours}:${mins}`
-        this.currentTime = currentTime
-        console.log(this.currentTime)
-
-        if (this.currentTime == this.wakeupTime){
-            setTimeout(() => clearInterval(this.timer2))
-            console.log("WAKE UP!!!")
-    }
-    }
-
-
-    alarm() {
-        this.display2()
-        console.log(this.currentTime)
-        console.log(this.wakeupTime)
-       this.timer2 = setInterval(() => this.display2(), 1000);
-    }
+    )
 }
-
-
-const alarm = new AlarmClock("WAKE UP", "13:59")
-
-alarm.alarm()
+randomDelay().then(() => console.log('There appears to have been a delay.')).catch(() => console.log("there was an error"));
