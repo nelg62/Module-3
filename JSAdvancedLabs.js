@@ -285,29 +285,29 @@ console.log("This is question 8");
 // started, until stopped.
 
 class DigitalClock {
-  constructor(prefix) {
-    this.prefix = prefix;
-  }
-  display() {
-    let date = new Date();
-    //create 3 variables in one go using array destructuring
-    let [hours, mins, secs] = [
-      date.getHours(),
-      date.getMinutes(),
-      date.getSeconds(),
-    ];
-    if (hours < 10) hours = "0" + hours;
-    if (mins < 10) mins = "0" + mins;
-    if (secs < 10) secs = "0" + secs;
-    console.log(`${this.prefix} ${hours}:${mins}:${secs}`);
-  }
-  stop() {
-    clearInterval(this.timer);
-  }
-  start() {
-    this.display();
-    this.timer = setInterval(() => this.display(), 1000);
-  }
+    constructor(prefix) {
+        this.prefix = prefix;
+    }
+    display() {
+        let date = new Date();
+        //create 3 variables in one go using array destructuring
+        let [hours, mins, secs] = [
+            date.getHours(),
+            date.getMinutes(),
+            date.getSeconds(),
+        ];
+        if (hours < 10) hours = "0" + hours;
+        if (mins < 10) mins = "0" + mins;
+        if (secs < 10) secs = "0" + secs;
+        console.log(`${this.prefix} ${hours}:${mins}:${secs}`);
+    }
+    stop() {
+        clearInterval(this.timer);
+    }
+    start() {
+        this.display();
+        this.timer = setInterval(() => this.display(), 1000);
+    }
 }
 // const myClock = new DigitalClock("my clock:");
 // myClock.start();
@@ -353,16 +353,41 @@ class DigitalClock {
 // default to 07:00 if not supplied.
 
 class AlarmClock extends DigitalClock {
-    constructor(prefix, wakeupTime) {
+    constructor(prefix, wakeupTime = "07:00") {
         super(prefix)
         this.wakeupTime = wakeupTime
     }
+    display2() {
+        let date = new Date()
+
+        let [hours, mins] = [
+            date.getHours(),
+            date.getMinutes(),
+        ];
+
+        if (hours < 10) hours = "0" + hours;
+        if (mins < 10) mins = "0" + mins;
+
+        let currentTime = `${hours}:${mins}`
+        this.currentTime = currentTime
+        console.log(this.currentTime)
+
+        if (this.currentTime == this.wakeupTime){
+            setTimeout(() => clearInterval(this.timer2))
+            console.log("WAKE UP!!!")
+    }
+    }
+
+
     alarm() {
+        this.display2()
+        console.log(this.currentTime)
         console.log(this.wakeupTime)
+       this.timer2 = setInterval(() => this.display2(), 1000);
     }
 }
 
 
-const alarm = new AlarmClock("WAKE UP", "3:00")
+const alarm = new AlarmClock("WAKE UP", "13:59")
 
 alarm.alarm()
