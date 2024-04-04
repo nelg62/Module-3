@@ -392,31 +392,66 @@
 
 // alarm.alarm()
 
-// ------------------------------question 9
-console.log("This is question 9")
+// // ------------------------------question 9
+// console.log("This is question 9")
 
-// We can delay execution of a function using setTimeout, where we need to provide both
-// the callback function and the delay after which it should execute.
-// a) Create a promise-based alternative randomDelay() that delays execution for a
-// random amount of time (between 1 and 20 seconds) and returns a promise we can use
-// via .then(), as in the starter code below
-// b) If the random delay is even, consider this a successful delay and resolve the promise,
-// and if the random number is odd, consider this a failure and reject it
-// c) Update the testing code to catch rejected promises and print a different message
-// d) Try to update the then and catch messages to include the random delay value
+// // We can delay execution of a function using setTimeout, where we need to provide both
+// // the callback function and the delay after which it should execute.
+// // a) Create a promise-based alternative randomDelay() that delays execution for a
+// // random amount of time (between 1 and 20 seconds) and returns a promise we can use
+// // via .then(), as in the starter code below
+// // b) If the random delay is even, consider this a successful delay and resolve the promise,
+// // and if the random number is odd, consider this a failure and reject it
+// // c) Update the testing code to catch rejected promises and print a different message
+// // d) Try to update the then and catch messages to include the random delay value
 
-function randomDelay() {
-    // your code
-    let randomTime = Math.floor(Math.random() * (20000 - 1000 + 1)) + 1000
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (randomTime % 2 == 0) {
-                resolve(console.log(`even number success the number was: ${randomTime}`))
-            } else {
-                reject(console.log(`odd number fail the number was: ${randomTime}`))
-            }
-        }, randomTime)
-    }
-    )
+// function randomDelay() {
+//     // your code
+//     let randomTime = Math.floor(Math.random() * (20000 - 1000 + 1)) + 1000
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             if (randomTime % 2 == 0) {
+//                 resolve(console.log(`even number success the number was: ${randomTime}`))
+//             } else {
+//                 reject(console.log(`odd number fail the number was: ${randomTime}`))
+//             }
+//         }, randomTime)
+//     }
+//     )
+// }
+// randomDelay().then(() => console.log('There appears to have been a delay.')).catch(() => console.log("there was an error"));
+
+
+// ------------------------------question 10
+console.log("This is question 10")
+
+// Fetch is a browser-based function to send a request and receive a response from a server,
+// which uses promises to handle the asynchronous response.
+// The below fetchURLData uses fetch to check the response for a successful status
+// code, and returns a promise containing the JSON sent by the remote server if successful
+// or an error if it failed. (To run this code in a node.js environment, follow the instructions in
+// the comments before the function.)
+// a) Write a new version of this function using async/await
+// b) Test both functions with valid and invalid URLs
+// c) (Extension) Extend your new function to accept an array of URLs and fetch all of them,
+// using Promise.all to combine the results.
+
+//run 'npm init' and accept all the defaults
+//run 'npm install node-fetch'
+//add this line to package.json after line 5: "type": "module",
+import fetch from 'node-fetch'
+globalThis.fetch = fetch
+function fetchURLData(url) {
+let fetchPromise = fetch(url).then(response => {
+if (response.status === 200) {
+return response.json();
+} else {
+throw new Error(`Request failed with status ${response.status}`);
 }
-randomDelay().then(() => console.log('There appears to have been a delay.')).catch(() => console.log("there was an error"));
+
+});
+return fetchPromise;
+}
+fetchURLData('https://jsonplaceholder.typicode.com/todos/1')
+.then(data => console.log(data))
+.catch(error => console.error(error.message));
