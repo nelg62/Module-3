@@ -441,17 +441,32 @@ console.log("This is question 10")
 //add this line to package.json after line 5: "type": "module",
 import fetch from 'node-fetch'
 globalThis.fetch = fetch
-function fetchURLData(url) {
-let fetchPromise = fetch(url).then(response => {
-if (response.status === 200) {
-return response.json();
-} else {
-throw new Error(`Request failed with status ${response.status}`);
+// function fetchURLData(url) {
+// let fetchPromise = fetch(url).then(response => {
+// if (response.status === 200) {
+// return response.json();
+// } else {
+// throw new Error(`Request failed with status ${response.status}`);
+// }
+
+// });
+// return fetchPromise;
+// }
+// fetchURLData('https://jsonplaceholder.typicode.com/todos/1')
+// .then(data => console.log(data))
+// .catch(error => console.error(error.message));
+
+async function fetchURLData(url) {
+    try {
+       let urldata = await fetch(url)
+        console.log("Hi")
+        let sorturldata = await urldata.json()
+        console.log(sorturldata)
+        
+    } catch (error){
+        console.log("enter a valid URL,"+ error)
+
+    }
 }
 
-});
-return fetchPromise;
-}
 fetchURLData('https://jsonplaceholder.typicode.com/todos/1')
-.then(data => console.log(data))
-.catch(error => console.error(error.message));
