@@ -11,11 +11,11 @@
 // // much each call to counter() should increase the counter value by.
 
 // function makeCounter(startFrom, incrementBy) {
-//     let currentCount = startFrom;
+//     // let currentCount = startFrom;
 //     return function() {
-//     console.log(currentCount += incrementBy);
+//     console.log(startFrom += incrementBy);
 //     // console.log(currentCount)
-//     return currentCount;
+//     return startFrom;
 //     };
 //     }
 //     let counter1 = makeCounter(10, 5);
@@ -58,58 +58,56 @@
 // delayMsg('#4: Not delayed at all')
 
 // ------------------------------question 3
-// console.log('This is question 3')
+// console.log("This is question 3");
 
-// // 'Debouncing' is a concept that refers to 'putting off' the execution of multiple, fast-timed,
-// // similar requests until there's a brief pause, then only executing the most recent of those
-// // requests. See https://www.techtarget.com/whatis/definition/debouncing
-// // It's often used to handle fast-firing scrolling events in a browser, or to prevent multiple server
-// // requests being initiated if a user clicks repeatedly on a button.
-// // Using the following code to test and start with:
-// // a) Create a debounce(func) decorator, which is a wrapper that takes a function func and
-// // suspends calls to func until there's 1000 milliseconds of inactivity. After this 1 second
-// // pause, the most recent call to func should be executed and any others ignored.
+// 'Debouncing' is a concept that refers to 'putting off' the execution of multiple, fast-timed,
+// similar requests until there's a brief pause, then only executing the most recent of those
+// requests. See https://www.techtarget.com/whatis/definition/debouncing
+// It's often used to handle fast-firing scrolling events in a browser, or to prevent multiple server
+// requests being initiated if a user clicks repeatedly on a button.
+// Using the following code to test and start with:
+// a) Create a debounce(func) decorator, which is a wrapper that takes a function func and
+// suspends calls to func until there's 1000 milliseconds of inactivity. After this 1 second
+// pause, the most recent call to func should be executed and any others ignored.
 
-// // function debounce(func) {
-// //     let timeout
-
-// //     return () => {
-// //         clearTimeout(timeout)
-// //         timeout = setTimeout(() => {
-// //             func.apply()
-// //         },1000)
-// //     }
-// // }
-
-// // b) Extend the debounce decorator function to take a second argument ms, which defines the
-// // length of the period of inactivity instead of hardcoding to 1000ms
-
-// function debounce(func, ms, msg) {
+// function debounce(func) {
 //     let timeout
 
 //     return () => {
 //         clearTimeout(timeout)
 //         timeout = setTimeout(() => {
-//            funcbind = func.bind()
-//            return funcbind(msg)
-//         },ms)
+//             func.apply()
+//         },1000)
 //     }
+// }
+
+// b) Extend the debounce decorator function to take a second argument ms, which defines the
+// length of the period of inactivity instead of hardcoding to 1000ms
+
+// function debounce(func, ms) {
+//   let timeout;
+
+//   return function() {
+//     clearTimeout(timeout);
+//     const tempFunc = func.bind(this, ...arguments);
+//     timeout = setTimeout(tempFunc, ms);
+//   };
 // }
 
 // // c) Extend debounce to allow the original debounced function printMe to take an argument
 // // msg which is included in the console.log statement.
 
 // function printMe(msg) {
-//     console.log(`printing debounced message ${msg}`)
-//     }
-//     printMe = debounce(printMe, 1000, 'this is an added message'); //create this debounce function for a)
-//     //fire off 3 calls to printMe within 300ms - only the LAST one should print, after 1000ms of no calls
-//     setTimeout( printMe, 100);
-//     setTimeout( printMe, 200);
-//     setTimeout( printMe, 300);
+//   console.log(`printing debounced message ${msg}`);
+// }
+// const debouncePrintMe = debounce(printMe, 1000); //create this debounce function for a)
+// //fire off 3 calls to printMe within 300ms - only the LAST one should print, after 1000ms of no calls
+// setTimeout(debouncePrintMe, 100, "A");
+// setTimeout(debouncePrintMe, 200, "B");
+// setTimeout(debouncePrintMe, 300, "CF");
 
-//     // ------------------------------question 4
-//     console.log('This is question 4')
+//// ------------------------------question 4
+// console.log("This is question 4");
 
 // //     The Fibonacci sequence of numbers is a famous pattern where the next number in the
 // // sequence is the sum of the previous 2.
@@ -131,24 +129,29 @@
 // // b) Write a new version printFibonacciTimeouts() that uses nested setTimeout
 // // calls to do the same thing
 
-// function printFibonacciTimeouts(time,limit) {
-//         let firstNum = 0
-//         let secondNum = 1
-//     setTimeout(function fibloop(loopnum) {numTogether = firstNum + secondNum
-//             firstNum = secondNum
-//             secondNum = numTogether
-//             console.log(numTogether)
-//         if (loopnum < limit) setTimeout(fibloop, time, loopnum+1)
-//         },time, 1)
+// function printFibonacciTimeouts(time, limit) {
+//   let firstNum = 0;
+//   let secondNum = 1;
+//   setTimeout(
+//     function fibloop(loopnum) {
+//      const numTogether = firstNum + secondNum;
+//       firstNum = secondNum;
+//       secondNum = numTogether;
+//       console.log(numTogether);
+//       if (loopnum < limit) setTimeout(fibloop, time, loopnum + 1);
+//     },
+//     time,
+//     1
+//   );
 // }
 
-// printFibonacciTimeouts(1000, 10)
+// printFibonacciTimeouts(1000, 10);
 
-// // c) Extend one of the above functions to accept a limit argument, which tells it how many
-// // numbers to print before stopping.
+// c) Extend one of the above functions to accept a limit argument, which tells it how many
+// numbers to print before stopping.
 
 // // ------------------------------queston 5
-// console.log('This is question 5')
+// console.log("This is question 5");
 
 // // The following car object has several properties and a method which uses them to print a
 // // description. When calling the function normally this works as expected, but using it from
@@ -157,25 +160,24 @@
 // // there needs to be a function to give context to the set timeout the car.description i just the name and not a function
 
 // let car = {
-//     make: "Porsche",
-//     model: '911',
-//     year: 1964,
-//     description() {
-
+//   make: "Porsche",
+//   model: "911",
+//   year: 1964,
+//   description() {
 //     console.log(`This car is a ${this.make} ${this.model} from ${this.year}`);
-//     }
-//     };
-//     car.description(); //works
-//     // setTimeout(car.description, 200); //fails
+//   },
+// };
+// car.description(); //works
+// // setTimeout(car.description, 200); //fails
 
 // //     a) Fix the setTimeout call by wrapping the call to car.description() inside a
 // // function
 
-// // setTimeout(() => car.description(), 200)
+// setTimeout(() => car.description(), 200);
 
 // // b) Change the year for the car by creating a clone of the original and overriding it
 
-// car = {...car, year: "1831" }
+// const copyCar = { ...car, year: "1831" };
 
 // // c) Does the delayed description() call use the original values or the new values from
 // // b)? Why?
@@ -185,57 +187,59 @@
 // // d) Use bind to fix the description method so that it can be called from within
 // // setTimeout without a wrapper function
 
-// const bindcar = car.description.bind(car)
-// setTimeout(bindcar, 200)
+// const bindcar = car.description.bind(copyCar);
+// setTimeout(bindcar, 200);
 
 // // e) Change another property of the car by creating a clone and overriding it, and test that
 // // setTimeout still uses the bound value from d)
 
-// car = {...car, make: 'woodencar'}
-// setTimeout(bindcar, 200)
+// const copyCar2 = { ...car, make: "woodencar" };
+// setTimeout(() => copyCar2.description(), 200);
 
-// // ------------------------------question 6
-// console.log('This is question 6')
+// ------------------------------question 6
+// console.log("This is question 6");
 
-// // Use the Function prototype to add a new delay(ms) function to all functions, which can
-// // be used to delay the call to that function by ms milliseconds.
+// Use the Function prototype to add a new delay(ms) function to all functions, which can
+// be used to delay the call to that function by ms milliseconds.
 
-// // function multiply(a, b) {
-// //     console.log( a * b );
-// //     }
-
-//     Function.prototype.delay = function delay(ms) {
-// return function (...a) {
-//         setTimeout(() => {multiply.apply(multiply,a)},ms)
+// function multiply(a, b) {
+//   console.log(a * b);
 // }
-//     }
+
+// Function.prototype.delay = function delay(ms) {
+//   return function () {
+//     setTimeout(() => {
+//       multiply.apply(multiply, arguments);
+//     }, ms);
+//   };
+// };
 
 // // multiply.delay(500)
-//     multiply.delay(500)(5, 5); // prints 25 after 500 milliseconds
-//     multiply.delay(1000)(5,5,5,5)
+// multiply.delay(500)(5, 5); // prints 25 after 500 milliseconds
+// multiply.delay(1000)(5, 5, 5, 5);
 
 // //     a) Use the example multiply function below to test it with, as above, and assume that all
 // // delayed functions will take two parameters
-// // b) Use apply to improve your solution so that delayed functions can take any number of
+// // b------------------------------) Use apply to improve your solution so that delayed functions can take any number of
 // // parameters
 // // c) Modify multiply to take 4 parameters and multiply all of them, and test that your
 // // delay prototype function still works.
 
-// function multiply(a,...b) {
-//     bTogether = b.reduce((first,second) => first*second)
-//     console.log(a * bTogether)
-//     }
+// function multiply() {
+//   const bTogether = [...arguments].reduce((first, second) => first * second);
+//   console.log(bTogether);
+// }
 
-// // ------------------------------question 7
-// console.log('This is question 7')
+// // question 7
+// console.log("This is question 7");
 
 // function Person(name, age, gender) {
-//     this.name = name;
-//     this.age = age;
-//     this.gender = gender;
-//     }
+//   this.name = name;
+//   this.age = age;
+//   this.gender = gender;
+// }
 
-//     const person1 = new Person('James Brown', 73, 'male')
+// const person1 = new Person("James Brown", 73, "male");
 
 // // In JavaScript, the toString method is used to convert an object to a string representation.
 // // By default, when an object is converted to a String, it returns a string that looks something
@@ -246,37 +250,37 @@
 // // their details
 
 // Person.prototype.toString = function addtostring() {
-//     return `name: ${this.name} age: ${this.age} gender: ${this.gender}`
-// }
+//   return `name: ${this.name} age: ${this.age} gender: ${this.gender}`;
+// };
 
 // // b) Test your method by creating 2 different people using the below constructor function
 // // and printing them
 
-// const person2 = new Person('Paul paul', 82, 'male')
-// const person3 = new Person('Bob bob', 22, 'female')
+// const person2 = new Person("Paul paul", 82, "male");
+// const person3 = new Person("Bob bob", 22, "female");
 
 // // c) Create a new constructor function Student that uses call to inherit from Person and
 // // add an extra property cohort
 
 // function Student(name, age, gender) {
-// Person.call(this,name, age, gender)
-// this.subject = 'Programing'
+//   Person.call(this, name, age, gender);
+//   this.subject = "Programing";
 // }
 
 // // d) Add a custom toString for Student objects that formats and prints their details. Test
 // // with 2 students.
 
-// const student1 = new Student('Jess jess', 33, 'male')
-// const student2 = new Student('Mac mac', 22, 'male')
+// const student1 = new Student("Jess jess", 33, "male");
+// const student2 = new Student("Mac mac", 22, "male");
 // Student.prototype.toString = function addtostring() {
-//     return `name: ${this.name} age: ${this.age} gender: ${this.gender} subject: ${this.subject}`
-// }
+//   return `name: ${this.name} age: ${this.age} gender: ${this.gender} subject: ${this.subject}`;
+// };
 
-//     console.log('person1: '+person1) //prints person1: [object Object]
-//     console.log('person2: '+person2)
-//     console.log('person3: '+person3)
-//     console.log('student1: '+student1)
-//     console.log('student2: '+student2)
+// console.log("person1: " + person1); //prints person1: [object Object]
+// console.log("person2: " + person2);
+// console.log("person3: " + person3);
+// console.log("student1: " + student1);
+// console.log("student2: " + student2);
 
 // // ------------------------------question 8
 // console.log("This is question 8");
@@ -285,29 +289,29 @@
 // // started, until stopped.
 
 // class DigitalClock {
-//     constructor(prefix) {
-//         this.prefix = prefix;
-//     }
-//     display() {
-//         let date = new Date();
-//         //create 3 variables in one go using array destructuring
-//         let [hours, mins, secs] = [
-//             date.getHours(),
-//             date.getMinutes(),
-//             date.getSeconds(),
-//         ];
-//         if (hours < 10) hours = "0" + hours;
-//         if (mins < 10) mins = "0" + mins;
-//         if (secs < 10) secs = "0" + secs;
-//         console.log(`${this.prefix} ${hours}:${mins}:${secs}`);
-//     }
-//     stop() {
-//         clearInterval(this.timer);
-//     }
-//     start() {
-//         this.display();
-//         this.timer = setInterval(() => this.display(), 1000);
-//     }
+//   constructor(prefix) {
+//     this.prefix = prefix;
+//   }
+//   display() {
+//     let date = new Date();
+//     //create 3 variables in one go using array destructuring
+//     let [hours, mins, secs] = [
+//       date.getHours(),
+//       date.getMinutes(),
+//       date.getSeconds(),
+//     ];
+//     if (hours < 10) hours = "0" + hours;
+//     if (mins < 10) mins = "0" + mins;
+//     if (secs < 10) secs = "0" + secs;
+//     console.log(`${this.prefix} ${hours}:${mins}:${secs}`);
+//   }
+//   stop() {
+//     clearInterval(this.timer);
+//   }
+//   start() {
+//     this.display();
+//     this.timer = setInterval(() => this.display(), 1000);
+//   }
 // }
 // // const myClock = new DigitalClock("my clock:");
 // // myClock.start();
@@ -341,7 +345,6 @@
 // //     }
 // // }
 
-
 // // // creates very fast loop will look at this later
 // // const preciseClock = new PrecisionClock("percice", 3000);
 
@@ -353,44 +356,37 @@
 // // default to 07:00 if not supplied.
 
 // class AlarmClock extends DigitalClock {
-//     constructor(prefix, wakeupTime = "07:00") {
-//         super(prefix)
-//         this.wakeupTime = wakeupTime
+//   timer2;
+//   constructor(prefix, wakeupTime = "07:00") {
+//     super(prefix);
+//     this.wakeupTime = wakeupTime;
+//   }
+//   display2() {
+//     let date = new Date();
+
+//     let [hours, mins] = [date.getHours(), date.getMinutes()];
+
+//     if (hours < 10) hours = "0" + hours;
+//     if (mins < 10) mins = "0" + mins;
+
+//     let currentTime = `${hours}:${mins}`;
+//     this.currentTime = currentTime;
+//     console.log(this.currentTime);
+
+//     if (this.currentTime == this.wakeupTime) {
+//       clearInterval(this.timer2);
+//       console.log("WAKE UP!!!");
 //     }
-//     display2() {
-//         let date = new Date()
+//   }
 
-//         let [hours, mins] = [
-//             date.getHours(),
-//             date.getMinutes(),
-//         ];
-
-//         if (hours < 10) hours = "0" + hours;
-//         if (mins < 10) mins = "0" + mins;
-
-//         let currentTime = `${hours}:${mins}`
-//         this.currentTime = currentTime
-//         console.log(this.currentTime)
-
-//         if (this.currentTime == this.wakeupTime){
-//             setTimeout(() => clearInterval(this.timer2))
-//             console.log("WAKE UP!!!")
-//     }
-//     }
-
-
-//     alarm() {
-//         this.display2()
-//         console.log(this.currentTime)
-//         console.log(this.wakeupTime)
-//        this.timer2 = setInterval(() => this.display2(), 1000);
-//     }
+//   alarm() {
+//     this.timer2 = setInterval(() => this.display2(), 1000);
+//   }
 // }
 
+// const alarm = new AlarmClock("WAKE UP", "11:38");
 
-// const alarm = new AlarmClock("WAKE UP", "13:59")
-
-// alarm.alarm()
+// alarm.alarm();
 
 // // ------------------------------question 9
 // console.log("This is question 9")
@@ -411,80 +407,81 @@
 //     return new Promise((resolve, reject) => {
 //         setTimeout(() => {
 //             if (randomTime % 2 == 0) {
-//                 resolve(console.log(`even number success the number was: ${randomTime}`))
+//                 resolve(randomTime)
 //             } else {
-//                 reject(console.log(`odd number fail the number was: ${randomTime}`))
+//                 reject(randomTime)
 //             }
 //         }, randomTime)
 //     }
 //     )
 // }
-// randomDelay().then(() => console.log('There appears to have been a delay.')).catch(() => console.log("there was an error"));
+// randomDelay().then((time) => console.log(`There appears to have been a delay ${time}.`)).catch((time) => console.log(`there was an error ${time}`));
 
+// // ------------------------------question 10
+// console.log("This is question 10");
 
-// ------------------------------question 10
-console.log("This is question 10")
+// // Fetch is a browser-based function to send a request and receive a response from a server,
+// // which uses promises to handle the asynchronous response.
+// // The below fetchURLData uses fetch to check the response for a successful status
+// // code, and returns a promise containing the JSON sent by the remote server if successful
+// // or an error if it failed. (To run this code in a node.js environment, follow the instructions in
+// // the comments before the function.)
+// // a) Write a new version of this function using async/await
+// // b) Test both functions with valid and invalid URLs
 
-// Fetch is a browser-based function to send a request and receive a response from a server,
-// which uses promises to handle the asynchronous response.
-// The below fetchURLData uses fetch to check the response for a successful status
-// code, and returns a promise containing the JSON sent by the remote server if successful
-// or an error if it failed. (To run this code in a node.js environment, follow the instructions in
-// the comments before the function.)
-// a) Write a new version of this function using async/await
-// b) Test both functions with valid and invalid URLs
+// // async function fetchURLData(url) {
+// //   try {
+// //     let urldata = await fetch(url);
+// //     let sorturldata = await urldata.json();
+// //     console.log(sorturldata);
+// //   } catch (error) {
+// //     console.log("error info:" + error);
+// //   }
+// // }
 
-// async function fetchURLData(url) {
-//     try {
-//        let urldata = await fetch(url)
-//         let sorturldata = await urldata.json()
-//         console.log(sorturldata)
-        
-//     } catch (error){
-//         console.log("error info:"+ error)
+// // fetchURLData("https://jsonplaceholder.typicode.com/todos/1");
+// // fetchURLData("hello");
 
-//     }
+// // c) (Extension) Extend your new function to accept an array of URLs and fetch all of them,
+// // using Promise.all to combine the results.
+
+// //run 'npm init' and accept all the defaults
+// //run 'npm install node-fetch'
+// //add this line to package.json after line 5: "type": "module",
+// import fetch from "node-fetch";
+// globalThis.fetch = fetch;
+// // function fetchURLData(url) {
+// // let fetchPromise = fetch(url).then(response => {
+// // if (response.status === 200) {
+// // return response.json();
+// // } else {
+// // throw new Error(`Request failed with status ${response.status}`);
+// // }
+
+// // });
+// // return fetchPromise;
+// // }
+// // fetchURLData('https://jsonplaceholder.typicode.com/todos/1')
+// // .then(data => console.log(data))
+// // .catch(error => console.error(error.message));
+
+// async function fetchURLData(urls) {
+//   try {
+//     const mapUrl = urls.map((url) => fetch(url));
+//     const results = await Promise.all(mapUrl);
+//     const jsonPromises = await results.map((result) => result.json());
+
+//     await Promise.all(jsonPromises).then((output1) => console.log(output1));
+//   } catch (error) {
+//     console.log("error info:" + error);
+//   }
 // }
 
-// fetchURLData('https://jsonplaceholder.typicode.com/todos/1')
-// fetchURLData('hello')
+// // fetchURLData('https://jsonplaceholder.typicode.com/todos/1')
+// // fetchURLData('hello')
 
-// c) (Extension) Extend your new function to accept an array of URLs and fetch all of them,
-// using Promise.all to combine the results.
-
-//run 'npm init' and accept all the defaults
-//run 'npm install node-fetch'
-//add this line to package.json after line 5: "type": "module",
-import fetch from 'node-fetch'
-globalThis.fetch = fetch
-// function fetchURLData(url) {
-// let fetchPromise = fetch(url).then(response => {
-// if (response.status === 200) {
-// return response.json();
-// } else {
-// throw new Error(`Request failed with status ${response.status}`);
-// }
-
-// });
-// return fetchPromise;
-// }
-// fetchURLData('https://jsonplaceholder.typicode.com/todos/1')
-// .then(data => console.log(data))
-// .catch(error => console.error(error.message));
-
-async function fetchURLData(url) {
-    try {
-        const mapUrl = url.map((url) => fetch(url))
-        const promiseUrl = await Promise.all(mapUrl)
-        const mapPromise = promiseUrl.map((promiseUrl) => promiseUrl.text())
-        console.log("console of URL:",await Promise.all(mapPromise).then(output1 => output1.map(output2 => JSON.parse(output2)))) //makes the text into json and usable with parse
-    } catch (error){
-        console.log("error info:"+ error)
-
-    }
-}
-
-// fetchURLData('https://jsonplaceholder.typicode.com/todos/1')
-// fetchURLData('hello')
-
-fetchURLData(['https://jsonplaceholder.typicode.com/todos/1','https://jsonplaceholder.typicode.com/todos/2','https://jsonplaceholder.typicode.com/todos/3'])
+// fetchURLData([
+//   "https://jsonplaceholder.typicode.com/todos/1",
+//   "https://jsonplaceholder.typicode.com/todos/2",
+//   "https://jsonplaceholder.typicode.com/todos/3",
+// ]);
