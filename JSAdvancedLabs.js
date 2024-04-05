@@ -433,6 +433,22 @@ console.log("This is question 10")
 // the comments before the function.)
 // a) Write a new version of this function using async/await
 // b) Test both functions with valid and invalid URLs
+
+// async function fetchURLData(url) {
+//     try {
+//        let urldata = await fetch(url)
+//         let sorturldata = await urldata.json()
+//         console.log(sorturldata)
+        
+//     } catch (error){
+//         console.log("error info:"+ error)
+
+//     }
+// }
+
+// fetchURLData('https://jsonplaceholder.typicode.com/todos/1')
+// fetchURLData('hello')
+
 // c) (Extension) Extend your new function to accept an array of URLs and fetch all of them,
 // using Promise.all to combine the results.
 
@@ -458,15 +474,17 @@ globalThis.fetch = fetch
 
 async function fetchURLData(url) {
     try {
-       let urldata = await fetch(url)
-        let sorturldata = await urldata.json()
-        console.log(sorturldata)
-        
+        const mapUrl = url.map((url) => fetch(url))
+        const promiseUrl = await Promise.all(mapUrl)
+        const mapPromise = promiseUrl.map((promiseUrl) => promiseUrl.text())
+        console.log("console of URL:",await Promise.all(mapPromise).then(output1 => output1.map(output2 => JSON.parse(output2)))) //makes the text into json and usable with parse
     } catch (error){
         console.log("error info:"+ error)
 
     }
 }
 
-fetchURLData('https://jsonplaceholder.typicode.com/todos/1')
-fetchURLData('hello')
+// fetchURLData('https://jsonplaceholder.typicode.com/todos/1')
+// fetchURLData('hello')
+
+fetchURLData(['https://jsonplaceholder.typicode.com/todos/1','https://jsonplaceholder.typicode.com/todos/2','https://jsonplaceholder.typicode.com/todos/3'])
